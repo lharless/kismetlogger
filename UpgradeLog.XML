@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="KismetLogger">
+</Property><Property Name="Solution File" Value="C:\Documents and Settings\lukeh\My Documents\kismetlogger\KismetLogger.sln">
+</Property><Property Name="User Options File" Value="C:\Documents and Settings\lukeh\My Documents\kismetlogger\KismetLogger.suo">
+</Property><Property Name="Date" Value="Sunday, September 10, 2006">
+</Property><Property Name="Time" Value="14:22 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="KismetLogger.sln" Description="File successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\KismetLogger.sln">
+</Event><Event ErrorLevel="0" Project="" Source="KismetLogger.suo" Description="File successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\KismetLogger.suo">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="KismetLogger.csproj" Description="Project file successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\KismetLogger.csproj">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="KismetLogger.csproj.user" Description="Project user file successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\KismetLogger.csproj.user">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="AssemblyInfo.cs" Description="File successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="Class1.cs" Description="File successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\Class1.cs">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="Clients.cs" Description="File successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\Clients.cs">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="Data.cs" Description="File successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\Data.cs">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="GPSData.cs" Description="File successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\GPSData.cs">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="GPSFiles.cs" Description="File successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\GPSFiles.cs">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="kismetgpsnew.cs" Description="File successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\kismetgpsnew.cs">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="kismetxml.cs" Description="File successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\kismetxml.cs">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="OUIData.cs" Description="File successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\OUIData.cs">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="App.ico" Description="File successfully backed up as C:\Documents and Settings\lukeh\My Documents\kismetlogger\Backup\App.ico">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="KismetLogger.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="KismetLogger" Source="KismetLogger.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="KismetLogger.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="KismetLogger.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="KismetLogger" Source="KismetLogger.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

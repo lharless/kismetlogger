@@ -1,0 +1,817 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.KismetLogger.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.SQLite">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTableAdapter" GeneratorDataComponentClassName="DataTableAdapter" Name="Data" UserDataComponentName="DataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ConnectionString (Settings)" DbObjectName="main.Data" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM [Data] WHERE (((@IsNull_oui = 1 AND [oui] IS NULL) OR ([oui] = @Original_oui)) AND ((@IsNull_totalpacketsweak = 1 AND [totalpacketsweak] IS NULL) OR ([totalpacketsweak] = @Original_totalpacketsweak)) AND ((@IsNull_totalpacketstotal = 1 AND [totalpacketstotal] IS NULL) OR ([totalpacketstotal] = @Original_totalpacketstotal)) AND ((@IsNull_totalpacketsllc = 1 AND [totalpacketsllc] IS NULL) OR ([totalpacketsllc] = @Original_totalpacketsllc)) AND ((@IsNull_totalpacketsdupeiv = 1 AND [totalpacketsdupeiv] IS NULL) OR ([totalpacketsdupeiv] = @Original_totalpacketsdupeiv)) AND ((@IsNull_totalpacketsdata = 1 AND [totalpacketsdata] IS NULL) OR ([totalpacketsdata] = @Original_totalpacketsdata)) AND ((@IsNull_totalpacketscrypt = 1 AND [totalpacketscrypt] IS NULL) OR ([totalpacketscrypt] = @Original_totalpacketscrypt)) AND ((@IsNull_Network = 1 AND [Network] IS NULL) OR ([Network] = @Original_Network)) AND ((@IsNull_NetType = 1 AND [NetType] IS NULL) OR ([NetType] = @Original_NetType)) AND ((@IsNull_ESSID = 1 AND [ESSID] IS NULL) OR ([ESSID] = @Original_ESSID)) AND ([BSSID] = @Original_BSSID) AND ((@IsNull_Info = 1 AND [Info] IS NULL) OR ([Info] = @Original_Info)) AND ((@IsNull_Channel = 1 AND [Channel] IS NULL) OR ([Channel] = @Original_Channel)) AND ((@IsNull_Cloaked = 1 AND [Cloaked] IS NULL) OR ([Cloaked] = @Original_Cloaked)) AND ((@IsNull_Encryption = 1 AND [Encryption] IS NULL) OR ([Encryption] = @Original_Encryption)) AND ((@IsNull_Decrypted = 1 AND [Decrypted] IS NULL) OR ([Decrypted] = @Original_Decrypted)) AND ((@IsNull_MaxRate = 1 AND [MaxRate] IS NULL) OR ([MaxRate] = @Original_MaxRate)) AND ((@IsNull_MaxSeenRate = 1 AND [MaxSeenRate] IS NULL) OR ([MaxSeenRate] = @Original_MaxSeenRate)) AND ((@IsNull_Beacon = 1 AND [Beacon] IS NULL) OR ([Beacon] = @Original_Beacon)) AND ((@IsNull_LLC = 1 AND [LLC] IS NULL) OR ([LLC] = @Original_LLC)) AND ((@IsNull_Data = 1 AND [Data] IS NULL) OR ([Data] = @Original_Data)) AND ((@IsNull_Crypt = 1 AND [Crypt] IS NULL) OR ([Crypt] = @Original_Crypt)) AND ((@IsNull_Weak = 1 AND [Weak] IS NULL) OR ([Weak] = @Original_Weak)) AND ((@IsNull_Total = 1 AND [Total] IS NULL) OR ([Total] = @Original_Total)) AND ((@IsNull_Carrier = 1 AND [Carrier] IS NULL) OR ([Carrier] = @Original_Carrier)) AND ((@IsNull_Encoding = 1 AND [Encoding] IS NULL) OR ([Encoding] = @Original_Encoding)) AND ((@IsNull_FirstTime = 1 AND [FirstTime] IS NULL) OR ([FirstTime] = @Original_FirstTime)) AND ((@IsNull_LastTime = 1 AND [LastTime] IS NULL) OR ([LastTime] = @Original_LastTime)) AND ((@IsNull_BestQuality = 1 AND [BestQuality] IS NULL) OR ([BestQuality] = @Original_BestQuality)) AND ((@IsNull_BestSignal = 1 AND [BestSignal] IS NULL) OR ([BestSignal] = @Original_BestSignal)) AND ((@IsNull_BestNoise = 1 AND [BestNoise] IS NULL) OR ([BestNoise] = @Original_BestNoise)) AND ((@IsNull_GPSMinLat = 1 AND [GPSMinLat] IS NULL) OR ([GPSMinLat] = @Original_GPSMinLat)) AND ((@IsNull_GPSMinLon = 1 AND [GPSMinLon] IS NULL) OR ([GPSMinLon] = @Original_GPSMinLon)) AND ((@IsNull_GPSMinAlt = 1 AND [GPSMinAlt] IS NULL) OR ([GPSMinAlt] = @Original_GPSMinAlt)) AND ((@IsNull_GPSMinSpd = 1 AND [GPSMinSpd] IS NULL) OR ([GPSMinSpd] = @Original_GPSMinSpd)) AND ((@IsNull_GPSMaxLat = 1 AND [GPSMaxLat] IS NULL) OR ([GPSMaxLat] = @Original_GPSMaxLat)) AND ((@IsNull_GPSMaxLon = 1 AND [GPSMaxLon] IS NULL) OR ([GPSMaxLon] = @Original_GPSMaxLon)) AND ((@IsNull_GPSMaxAlt = 1 AND [GPSMaxAlt] IS NULL) OR ([GPSMaxAlt] = @Original_GPSMaxAlt)) AND ((@IsNull_GPSMaxSpd = 1 AND [GPSMaxSpd] IS NULL) OR ([GPSMaxSpd] = @Original_GPSMaxSpd)) AND ((@IsNull_GPSBestLat = 1 AND [GPSBestLat] IS NULL) OR ([GPSBestLat] = @Original_GPSBestLat)) AND ((@IsNull_GPSBestLon = 1 AND [GPSBestLon] IS NULL) OR ([GPSBestLon] = @Original_GPSBestLon)) AND ((@IsNull_GPSBestAlt = 1 AND [GPSBestAlt] IS NULL) OR ([GPSBestAlt] = @Original_GPSBestAlt)) AND ((@IsNull_Datasize = 1 AND [Datasize] IS NULL) OR ([Datasize] = @Original_Datasize)) AND ((@IsNull_IPType = 1 AND [IPType] IS NULL) OR ([IPType] = @Original_IPType)) AND ((@IsNull_IP = 1 AND [IP] IS NULL) OR ([IP] = @Original_IP)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_oui" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="oui" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_oui" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="oui" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_totalpacketsweak" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="totalpacketsweak" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_totalpacketsweak" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsweak" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_totalpacketstotal" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="totalpacketstotal" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_totalpacketstotal" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketstotal" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_totalpacketsllc" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="totalpacketsllc" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_totalpacketsllc" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsllc" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_totalpacketsdupeiv" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="totalpacketsdupeiv" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_totalpacketsdupeiv" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsdupeiv" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_totalpacketsdata" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="totalpacketsdata" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_totalpacketsdata" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsdata" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_totalpacketscrypt" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="totalpacketscrypt" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_totalpacketscrypt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketscrypt" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Network" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Network" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Network" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Network" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NetType" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="NetType" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NetType" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="NetType" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ESSID" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="ESSID" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_ESSID" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="ESSID" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BSSID" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="BSSID" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Info" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Info" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Info" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Info" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Channel" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Channel" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Channel" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Channel" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Cloaked" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Cloaked" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Cloaked" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Cloaked" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Encryption" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Encryption" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Encryption" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Encryption" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Decrypted" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Decrypted" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Decrypted" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Decrypted" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaxRate" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="MaxRate" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_MaxRate" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="MaxRate" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaxSeenRate" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="MaxSeenRate" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_MaxSeenRate" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="MaxSeenRate" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Beacon" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Beacon" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Beacon" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Beacon" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LLC" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="LLC" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_LLC" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="LLC" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Data" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Data" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Data" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Data" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Crypt" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Crypt" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Crypt" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Crypt" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Weak" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Weak" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Weak" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Weak" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Total" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Total" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Total" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Total" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Carrier" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Carrier" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Carrier" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Carrier" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Encoding" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Encoding" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Encoding" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Encoding" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FirstTime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="FirstTime" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_FirstTime" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="FirstTime" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LastTime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="LastTime" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_LastTime" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="LastTime" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BestQuality" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="BestQuality" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BestQuality" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="BestQuality" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BestSignal" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="BestSignal" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_BestSignal" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="BestSignal" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BestNoise" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="BestNoise" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_BestNoise" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="BestNoise" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMinLat" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMinLat" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMinLat" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinLat" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMinLon" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMinLon" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMinLon" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinLon" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMinAlt" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMinAlt" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMinAlt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinAlt" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMinSpd" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMinSpd" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMinSpd" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinSpd" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMaxLat" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMaxLat" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMaxLat" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxLat" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMaxLon" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMaxLon" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMaxLon" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxLon" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMaxAlt" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMaxAlt" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMaxAlt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxAlt" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMaxSpd" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMaxSpd" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMaxSpd" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxSpd" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSBestLat" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSBestLat" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSBestLat" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSBestLat" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSBestLon" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSBestLon" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSBestLon" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSBestLon" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSBestAlt" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSBestAlt" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSBestAlt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSBestAlt" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Datasize" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Datasize" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Datasize" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Datasize" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IPType" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="IPType" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_IPType" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="IPType" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IP" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="IP" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_IP" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="IP" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>INSERT INTO [Data] ([oui], [totalpacketsweak], [totalpacketstotal], [totalpacketsllc], [totalpacketsdupeiv], [totalpacketsdata], [totalpacketscrypt], [Network], [NetType], [ESSID], [BSSID], [Info], [Channel], [Cloaked], [Encryption], [Decrypted], [MaxRate], [MaxSeenRate], [Beacon], [LLC], [Data], [Crypt], [Weak], [Total], [Carrier], [Encoding], [FirstTime], [LastTime], [BestQuality], [BestSignal], [BestNoise], [GPSMinLat], [GPSMinLon], [GPSMinAlt], [GPSMinSpd], [GPSMaxLat], [GPSMaxLon], [GPSMaxAlt], [GPSMaxSpd], [GPSBestLat], [GPSBestLon], [GPSBestAlt], [Datasize], [IPType], [IP]) VALUES (@oui, @totalpacketsweak, @totalpacketstotal, @totalpacketsllc, @totalpacketsdupeiv, @totalpacketsdata, @totalpacketscrypt, @Network, @NetType, @ESSID, @BSSID, @Info, @Channel, @Cloaked, @Encryption, @Decrypted, @MaxRate, @MaxSeenRate, @Beacon, @LLC, @Data, @Crypt, @Weak, @Total, @Carrier, @Encoding, @FirstTime, @LastTime, @BestQuality, @BestSignal, @BestNoise, @GPSMinLat, @GPSMinLon, @GPSMinAlt, @GPSMinSpd, @GPSMaxLat, @GPSMaxLon, @GPSMaxAlt, @GPSMaxSpd, @GPSBestLat, @GPSBestLon, @GPSBestAlt, @Datasize, @IPType, @IP)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@oui" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="oui" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@totalpacketsweak" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsweak" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@totalpacketstotal" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketstotal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@totalpacketsllc" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsllc" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@totalpacketsdupeiv" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsdupeiv" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@totalpacketsdata" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsdata" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@totalpacketscrypt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketscrypt" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Network" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Network" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NetType" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="NetType" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ESSID" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="ESSID" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BSSID" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="BSSID" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Info" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Info" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Channel" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Channel" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Cloaked" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Cloaked" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Encryption" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Encryption" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Decrypted" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Decrypted" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@MaxRate" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="MaxRate" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@MaxSeenRate" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="MaxSeenRate" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Beacon" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Beacon" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@LLC" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="LLC" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Data" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Data" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Crypt" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Crypt" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Weak" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Weak" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Total" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Total" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Carrier" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Carrier" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Encoding" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Encoding" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@FirstTime" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="FirstTime" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@LastTime" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="LastTime" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BestQuality" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="BestQuality" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@BestSignal" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="BestSignal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@BestNoise" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="BestNoise" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMinLat" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinLat" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMinLon" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinLon" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMinAlt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinAlt" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMinSpd" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinSpd" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMaxLat" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxLat" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMaxLon" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxLon" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMaxAlt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxAlt" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMaxSpd" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxSpd" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSBestLat" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSBestLat" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSBestLon" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSBestLon" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSBestAlt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSBestAlt" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Datasize" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Datasize" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IPType" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="IPType" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IP" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="IP" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT [oui], [totalpacketsweak], [totalpacketstotal], [totalpacketsllc], [totalpacketsdupeiv], [totalpacketsdata], [totalpacketscrypt], [Network], [NetType], [ESSID], [BSSID], [Info], [Channel], [Cloaked], [Encryption], [Decrypted], [MaxRate], [MaxSeenRate], [Beacon], [LLC], [Data], [Crypt], [Weak], [Total], [Carrier], [Encoding], [FirstTime], [LastTime], [BestQuality], [BestSignal], [BestNoise], [GPSMinLat], [GPSMinLon], [GPSMinAlt], [GPSMinSpd], [GPSMaxLat], [GPSMaxLon], [GPSMaxAlt], [GPSMaxSpd], [GPSBestLat], [GPSBestLon], [GPSBestAlt], [Datasize], [IPType], [IP] FROM [Data]</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE [Data] SET [oui] = @oui, [totalpacketsweak] = @totalpacketsweak, [totalpacketstotal] = @totalpacketstotal, [totalpacketsllc] = @totalpacketsllc, [totalpacketsdupeiv] = @totalpacketsdupeiv, [totalpacketsdata] = @totalpacketsdata, [totalpacketscrypt] = @totalpacketscrypt, [Network] = @Network, [NetType] = @NetType, [ESSID] = @ESSID, [BSSID] = @BSSID, [Info] = @Info, [Channel] = @Channel, [Cloaked] = @Cloaked, [Encryption] = @Encryption, [Decrypted] = @Decrypted, [MaxRate] = @MaxRate, [MaxSeenRate] = @MaxSeenRate, [Beacon] = @Beacon, [LLC] = @LLC, [Data] = @Data, [Crypt] = @Crypt, [Weak] = @Weak, [Total] = @Total, [Carrier] = @Carrier, [Encoding] = @Encoding, [FirstTime] = @FirstTime, [LastTime] = @LastTime, [BestQuality] = @BestQuality, [BestSignal] = @BestSignal, [BestNoise] = @BestNoise, [GPSMinLat] = @GPSMinLat, [GPSMinLon] = @GPSMinLon, [GPSMinAlt] = @GPSMinAlt, [GPSMinSpd] = @GPSMinSpd, [GPSMaxLat] = @GPSMaxLat, [GPSMaxLon] = @GPSMaxLon, [GPSMaxAlt] = @GPSMaxAlt, [GPSMaxSpd] = @GPSMaxSpd, [GPSBestLat] = @GPSBestLat, [GPSBestLon] = @GPSBestLon, [GPSBestAlt] = @GPSBestAlt, [Datasize] = @Datasize, [IPType] = @IPType, [IP] = @IP WHERE (((@IsNull_oui = 1 AND [oui] IS NULL) OR ([oui] = @Original_oui)) AND ((@IsNull_totalpacketsweak = 1 AND [totalpacketsweak] IS NULL) OR ([totalpacketsweak] = @Original_totalpacketsweak)) AND ((@IsNull_totalpacketstotal = 1 AND [totalpacketstotal] IS NULL) OR ([totalpacketstotal] = @Original_totalpacketstotal)) AND ((@IsNull_totalpacketsllc = 1 AND [totalpacketsllc] IS NULL) OR ([totalpacketsllc] = @Original_totalpacketsllc)) AND ((@IsNull_totalpacketsdupeiv = 1 AND [totalpacketsdupeiv] IS NULL) OR ([totalpacketsdupeiv] = @Original_totalpacketsdupeiv)) AND ((@IsNull_totalpacketsdata = 1 AND [totalpacketsdata] IS NULL) OR ([totalpacketsdata] = @Original_totalpacketsdata)) AND ((@IsNull_totalpacketscrypt = 1 AND [totalpacketscrypt] IS NULL) OR ([totalpacketscrypt] = @Original_totalpacketscrypt)) AND ((@IsNull_Network = 1 AND [Network] IS NULL) OR ([Network] = @Original_Network)) AND ((@IsNull_NetType = 1 AND [NetType] IS NULL) OR ([NetType] = @Original_NetType)) AND ((@IsNull_ESSID = 1 AND [ESSID] IS NULL) OR ([ESSID] = @Original_ESSID)) AND ([BSSID] = @Original_BSSID) AND ((@IsNull_Info = 1 AND [Info] IS NULL) OR ([Info] = @Original_Info)) AND ((@IsNull_Channel = 1 AND [Channel] IS NULL) OR ([Channel] = @Original_Channel)) AND ((@IsNull_Cloaked = 1 AND [Cloaked] IS NULL) OR ([Cloaked] = @Original_Cloaked)) AND ((@IsNull_Encryption = 1 AND [Encryption] IS NULL) OR ([Encryption] = @Original_Encryption)) AND ((@IsNull_Decrypted = 1 AND [Decrypted] IS NULL) OR ([Decrypted] = @Original_Decrypted)) AND ((@IsNull_MaxRate = 1 AND [MaxRate] IS NULL) OR ([MaxRate] = @Original_MaxRate)) AND ((@IsNull_MaxSeenRate = 1 AND [MaxSeenRate] IS NULL) OR ([MaxSeenRate] = @Original_MaxSeenRate)) AND ((@IsNull_Beacon = 1 AND [Beacon] IS NULL) OR ([Beacon] = @Original_Beacon)) AND ((@IsNull_LLC = 1 AND [LLC] IS NULL) OR ([LLC] = @Original_LLC)) AND ((@IsNull_Data = 1 AND [Data] IS NULL) OR ([Data] = @Original_Data)) AND ((@IsNull_Crypt = 1 AND [Crypt] IS NULL) OR ([Crypt] = @Original_Crypt)) AND ((@IsNull_Weak = 1 AND [Weak] IS NULL) OR ([Weak] = @Original_Weak)) AND ((@IsNull_Total = 1 AND [Total] IS NULL) OR ([Total] = @Original_Total)) AND ((@IsNull_Carrier = 1 AND [Carrier] IS NULL) OR ([Carrier] = @Original_Carrier)) AND ((@IsNull_Encoding = 1 AND [Encoding] IS NULL) OR ([Encoding] = @Original_Encoding)) AND ((@IsNull_FirstTime = 1 AND [FirstTime] IS NULL) OR ([FirstTime] = @Original_FirstTime)) AND ((@IsNull_LastTime = 1 AND [LastTime] IS NULL) OR ([LastTime] = @Original_LastTime)) AND ((@IsNull_BestQuality = 1 AND [BestQuality] IS NULL) OR ([BestQuality] = @Original_BestQuality)) AND ((@IsNull_BestSignal = 1 AND [BestSignal] IS NULL) OR ([BestSignal] = @Original_BestSignal)) AND ((@IsNull_BestNoise = 1 AND [BestNoise] IS NULL) OR ([BestNoise] = @Original_BestNoise)) AND ((@IsNull_GPSMinLat = 1 AND [GPSMinLat] IS NULL) OR ([GPSMinLat] = @Original_GPSMinLat)) AND ((@IsNull_GPSMinLon = 1 AND [GPSMinLon] IS NULL) OR ([GPSMinLon] = @Original_GPSMinLon)) AND ((@IsNull_GPSMinAlt = 1 AND [GPSMinAlt] IS NULL) OR ([GPSMinAlt] = @Original_GPSMinAlt)) AND ((@IsNull_GPSMinSpd = 1 AND [GPSMinSpd] IS NULL) OR ([GPSMinSpd] = @Original_GPSMinSpd)) AND ((@IsNull_GPSMaxLat = 1 AND [GPSMaxLat] IS NULL) OR ([GPSMaxLat] = @Original_GPSMaxLat)) AND ((@IsNull_GPSMaxLon = 1 AND [GPSMaxLon] IS NULL) OR ([GPSMaxLon] = @Original_GPSMaxLon)) AND ((@IsNull_GPSMaxAlt = 1 AND [GPSMaxAlt] IS NULL) OR ([GPSMaxAlt] = @Original_GPSMaxAlt)) AND ((@IsNull_GPSMaxSpd = 1 AND [GPSMaxSpd] IS NULL) OR ([GPSMaxSpd] = @Original_GPSMaxSpd)) AND ((@IsNull_GPSBestLat = 1 AND [GPSBestLat] IS NULL) OR ([GPSBestLat] = @Original_GPSBestLat)) AND ((@IsNull_GPSBestLon = 1 AND [GPSBestLon] IS NULL) OR ([GPSBestLon] = @Original_GPSBestLon)) AND ((@IsNull_GPSBestAlt = 1 AND [GPSBestAlt] IS NULL) OR ([GPSBestAlt] = @Original_GPSBestAlt)) AND ((@IsNull_Datasize = 1 AND [Datasize] IS NULL) OR ([Datasize] = @Original_Datasize)) AND ((@IsNull_IPType = 1 AND [IPType] IS NULL) OR ([IPType] = @Original_IPType)) AND ((@IsNull_IP = 1 AND [IP] IS NULL) OR ([IP] = @Original_IP)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@oui" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="oui" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@totalpacketsweak" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsweak" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@totalpacketstotal" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketstotal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@totalpacketsllc" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsllc" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@totalpacketsdupeiv" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsdupeiv" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@totalpacketsdata" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsdata" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@totalpacketscrypt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketscrypt" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Network" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Network" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NetType" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="NetType" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@ESSID" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="ESSID" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BSSID" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="BSSID" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Info" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Info" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Channel" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Channel" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Cloaked" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Cloaked" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Encryption" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Encryption" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Decrypted" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Decrypted" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@MaxRate" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="MaxRate" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@MaxSeenRate" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="MaxSeenRate" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Beacon" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Beacon" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@LLC" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="LLC" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Data" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Data" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Crypt" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Crypt" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Weak" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Weak" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Total" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Total" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Carrier" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Carrier" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Encoding" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Encoding" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@FirstTime" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="FirstTime" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@LastTime" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="LastTime" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@BestQuality" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="BestQuality" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@BestSignal" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="BestSignal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@BestNoise" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="BestNoise" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMinLat" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinLat" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMinLon" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinLon" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMinAlt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinAlt" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMinSpd" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinSpd" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMaxLat" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxLat" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMaxLon" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxLon" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMaxAlt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxAlt" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSMaxSpd" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxSpd" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSBestLat" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSBestLat" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSBestLon" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSBestLon" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@GPSBestAlt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSBestAlt" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Datasize" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Datasize" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IPType" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="IPType" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@IP" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="IP" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_oui" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="oui" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_oui" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="oui" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_totalpacketsweak" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="totalpacketsweak" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_totalpacketsweak" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsweak" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_totalpacketstotal" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="totalpacketstotal" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_totalpacketstotal" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketstotal" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_totalpacketsllc" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="totalpacketsllc" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_totalpacketsllc" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsllc" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_totalpacketsdupeiv" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="totalpacketsdupeiv" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_totalpacketsdupeiv" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsdupeiv" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_totalpacketsdata" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="totalpacketsdata" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_totalpacketsdata" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketsdata" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_totalpacketscrypt" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="totalpacketscrypt" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_totalpacketscrypt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="totalpacketscrypt" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Network" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Network" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Network" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Network" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NetType" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="NetType" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NetType" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="NetType" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ESSID" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="ESSID" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_ESSID" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="ESSID" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BSSID" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="BSSID" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Info" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Info" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Info" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Info" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Channel" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Channel" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Channel" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Channel" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Cloaked" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Cloaked" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Cloaked" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Cloaked" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Encryption" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Encryption" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Encryption" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Encryption" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Decrypted" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Decrypted" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Decrypted" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Decrypted" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaxRate" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="MaxRate" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_MaxRate" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="MaxRate" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MaxSeenRate" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="MaxSeenRate" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_MaxSeenRate" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="MaxSeenRate" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Beacon" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Beacon" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Beacon" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Beacon" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LLC" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="LLC" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_LLC" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="LLC" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Data" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Data" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Data" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Data" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Crypt" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Crypt" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Crypt" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Crypt" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Weak" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Weak" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Weak" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Weak" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Total" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Total" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Total" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Total" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Carrier" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Carrier" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_Carrier" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="Carrier" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Encoding" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Encoding" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Encoding" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Encoding" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FirstTime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="FirstTime" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_FirstTime" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="FirstTime" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_LastTime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="LastTime" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_LastTime" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="LastTime" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BestQuality" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="BestQuality" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_BestQuality" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="BestQuality" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BestSignal" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="BestSignal" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_BestSignal" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="BestSignal" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BestNoise" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="BestNoise" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_BestNoise" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="BestNoise" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMinLat" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMinLat" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMinLat" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinLat" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMinLon" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMinLon" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMinLon" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinLon" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMinAlt" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMinAlt" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMinAlt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinAlt" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMinSpd" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMinSpd" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMinSpd" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMinSpd" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMaxLat" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMaxLat" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMaxLat" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxLat" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMaxLon" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMaxLon" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMaxLon" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxLon" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMaxAlt" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMaxAlt" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMaxAlt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxAlt" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSMaxSpd" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSMaxSpd" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSMaxSpd" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSMaxSpd" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSBestLat" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSBestLat" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSBestLat" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSBestLat" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSBestLon" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSBestLon" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSBestLon" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSBestLon" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_GPSBestAlt" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="GPSBestAlt" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_GPSBestAlt" Precision="0" ProviderType="Decimal" Scale="0" Size="0" SourceColumn="GPSBestAlt" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Datasize" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Datasize" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Datasize" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="Datasize" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IPType" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="IPType" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_IPType" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="IPType" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_IP" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="IP" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_IP" Precision="0" ProviderType="String" Scale="0" Size="0" SourceColumn="IP" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="oui" DataSetColumn="oui" />
+              <Mapping SourceColumn="totalpacketsweak" DataSetColumn="totalpacketsweak" />
+              <Mapping SourceColumn="totalpacketstotal" DataSetColumn="totalpacketstotal" />
+              <Mapping SourceColumn="totalpacketsllc" DataSetColumn="totalpacketsllc" />
+              <Mapping SourceColumn="totalpacketsdupeiv" DataSetColumn="totalpacketsdupeiv" />
+              <Mapping SourceColumn="totalpacketsdata" DataSetColumn="totalpacketsdata" />
+              <Mapping SourceColumn="totalpacketscrypt" DataSetColumn="totalpacketscrypt" />
+              <Mapping SourceColumn="Network" DataSetColumn="Network" />
+              <Mapping SourceColumn="NetType" DataSetColumn="NetType" />
+              <Mapping SourceColumn="ESSID" DataSetColumn="ESSID" />
+              <Mapping SourceColumn="BSSID" DataSetColumn="BSSID" />
+              <Mapping SourceColumn="Info" DataSetColumn="Info" />
+              <Mapping SourceColumn="Channel" DataSetColumn="Channel" />
+              <Mapping SourceColumn="Cloaked" DataSetColumn="Cloaked" />
+              <Mapping SourceColumn="Encryption" DataSetColumn="Encryption" />
+              <Mapping SourceColumn="Decrypted" DataSetColumn="Decrypted" />
+              <Mapping SourceColumn="MaxRate" DataSetColumn="MaxRate" />
+              <Mapping SourceColumn="MaxSeenRate" DataSetColumn="MaxSeenRate" />
+              <Mapping SourceColumn="Beacon" DataSetColumn="Beacon" />
+              <Mapping SourceColumn="LLC" DataSetColumn="LLC" />
+              <Mapping SourceColumn="Data" DataSetColumn="Data" />
+              <Mapping SourceColumn="Crypt" DataSetColumn="Crypt" />
+              <Mapping SourceColumn="Weak" DataSetColumn="Weak" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="Carrier" DataSetColumn="Carrier" />
+              <Mapping SourceColumn="Encoding" DataSetColumn="Encoding" />
+              <Mapping SourceColumn="FirstTime" DataSetColumn="FirstTime" />
+              <Mapping SourceColumn="LastTime" DataSetColumn="LastTime" />
+              <Mapping SourceColumn="BestQuality" DataSetColumn="BestQuality" />
+              <Mapping SourceColumn="BestSignal" DataSetColumn="BestSignal" />
+              <Mapping SourceColumn="BestNoise" DataSetColumn="BestNoise" />
+              <Mapping SourceColumn="GPSMinLat" DataSetColumn="GPSMinLat" />
+              <Mapping SourceColumn="GPSMinLon" DataSetColumn="GPSMinLon" />
+              <Mapping SourceColumn="GPSMinAlt" DataSetColumn="GPSMinAlt" />
+              <Mapping SourceColumn="GPSMinSpd" DataSetColumn="GPSMinSpd" />
+              <Mapping SourceColumn="GPSMaxLat" DataSetColumn="GPSMaxLat" />
+              <Mapping SourceColumn="GPSMaxLon" DataSetColumn="GPSMaxLon" />
+              <Mapping SourceColumn="GPSMaxAlt" DataSetColumn="GPSMaxAlt" />
+              <Mapping SourceColumn="GPSMaxSpd" DataSetColumn="GPSMaxSpd" />
+              <Mapping SourceColumn="GPSBestLat" DataSetColumn="GPSBestLat" />
+              <Mapping SourceColumn="GPSBestLon" DataSetColumn="GPSBestLon" />
+              <Mapping SourceColumn="GPSBestAlt" DataSetColumn="GPSBestAlt" />
+              <Mapping SourceColumn="Datasize" DataSetColumn="Datasize" />
+              <Mapping SourceColumn="IPType" DataSetColumn="IPType" />
+              <Mapping SourceColumn="IP" DataSetColumn="IP" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Data" msprop:Generator_UserTableName="Data" msprop:Generator_RowDeletedName="DataRowDeleted" msprop:Generator_TableClassName="DataDataTable" msprop:Generator_RowChangedName="DataRowChanged" msprop:Generator_RowClassName="DataRow" msprop:Generator_RowChangingName="DataRowChanging" msprop:Generator_RowEvArgName="DataRowChangeEvent" msprop:Generator_RowEvHandlerName="DataRowChangeEventHandler" msprop:Generator_TablePropName="Data" msprop:Generator_TableVarName="tableData" msprop:Generator_RowDeletingName="DataRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="oui" msprop:Generator_UserColumnName="oui" msprop:Generator_ColumnPropNameInRow="oui" msprop:Generator_ColumnVarNameInTable="columnoui" msprop:Generator_ColumnPropNameInTable="ouiColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="totalpacketsweak" msprop:Generator_UserColumnName="totalpacketsweak" msprop:Generator_ColumnPropNameInRow="totalpacketsweak" msprop:Generator_ColumnVarNameInTable="columntotalpacketsweak" msprop:Generator_ColumnPropNameInTable="totalpacketsweakColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="totalpacketstotal" msprop:Generator_UserColumnName="totalpacketstotal" msprop:Generator_ColumnPropNameInRow="totalpacketstotal" msprop:Generator_ColumnVarNameInTable="columntotalpacketstotal" msprop:Generator_ColumnPropNameInTable="totalpacketstotalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="totalpacketsllc" msprop:Generator_UserColumnName="totalpacketsllc" msprop:Generator_ColumnPropNameInRow="totalpacketsllc" msprop:Generator_ColumnVarNameInTable="columntotalpacketsllc" msprop:Generator_ColumnPropNameInTable="totalpacketsllcColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="totalpacketsdupeiv" msprop:Generator_UserColumnName="totalpacketsdupeiv" msprop:Generator_ColumnPropNameInRow="totalpacketsdupeiv" msprop:Generator_ColumnVarNameInTable="columntotalpacketsdupeiv" msprop:Generator_ColumnPropNameInTable="totalpacketsdupeivColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="totalpacketsdata" msprop:Generator_UserColumnName="totalpacketsdata" msprop:Generator_ColumnPropNameInRow="totalpacketsdata" msprop:Generator_ColumnVarNameInTable="columntotalpacketsdata" msprop:Generator_ColumnPropNameInTable="totalpacketsdataColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="totalpacketscrypt" msprop:Generator_UserColumnName="totalpacketscrypt" msprop:Generator_ColumnPropNameInRow="totalpacketscrypt" msprop:Generator_ColumnVarNameInTable="columntotalpacketscrypt" msprop:Generator_ColumnPropNameInTable="totalpacketscryptColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Network" msprop:Generator_UserColumnName="Network" msprop:Generator_ColumnPropNameInRow="Network" msprop:Generator_ColumnVarNameInTable="columnNetwork" msprop:Generator_ColumnPropNameInTable="NetworkColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NetType" msprop:Generator_UserColumnName="NetType" msprop:Generator_ColumnPropNameInRow="NetType" msprop:Generator_ColumnVarNameInTable="columnNetType" msprop:Generator_ColumnPropNameInTable="NetTypeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ESSID" msprop:Generator_UserColumnName="ESSID" msprop:Generator_ColumnPropNameInRow="ESSID" msprop:Generator_ColumnVarNameInTable="columnESSID" msprop:Generator_ColumnPropNameInTable="ESSIDColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BSSID" msprop:Generator_UserColumnName="BSSID" msprop:Generator_ColumnPropNameInRow="BSSID" msprop:Generator_ColumnVarNameInTable="columnBSSID" msprop:Generator_ColumnPropNameInTable="BSSIDColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Info" msprop:Generator_UserColumnName="Info" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInTable="InfoColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Channel" msprop:Generator_UserColumnName="Channel" msprop:Generator_ColumnPropNameInRow="Channel" msprop:Generator_ColumnVarNameInTable="columnChannel" msprop:Generator_ColumnPropNameInTable="ChannelColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Cloaked" msprop:Generator_UserColumnName="Cloaked" msprop:Generator_ColumnPropNameInRow="Cloaked" msprop:Generator_ColumnVarNameInTable="columnCloaked" msprop:Generator_ColumnPropNameInTable="CloakedColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Encryption" msprop:Generator_UserColumnName="Encryption" msprop:Generator_ColumnPropNameInRow="Encryption" msprop:Generator_ColumnVarNameInTable="columnEncryption" msprop:Generator_ColumnPropNameInTable="EncryptionColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decrypted" msprop:Generator_UserColumnName="Decrypted" msprop:Generator_ColumnPropNameInRow="Decrypted" msprop:Generator_ColumnVarNameInTable="columnDecrypted" msprop:Generator_ColumnPropNameInTable="DecryptedColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MaxRate" msprop:Generator_UserColumnName="MaxRate" msprop:Generator_ColumnPropNameInRow="MaxRate" msprop:Generator_ColumnVarNameInTable="columnMaxRate" msprop:Generator_ColumnPropNameInTable="MaxRateColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MaxSeenRate" msprop:Generator_UserColumnName="MaxSeenRate" msprop:Generator_ColumnPropNameInRow="MaxSeenRate" msprop:Generator_ColumnVarNameInTable="columnMaxSeenRate" msprop:Generator_ColumnPropNameInTable="MaxSeenRateColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Beacon" msprop:Generator_UserColumnName="Beacon" msprop:Generator_ColumnPropNameInRow="Beacon" msprop:Generator_ColumnVarNameInTable="columnBeacon" msprop:Generator_ColumnPropNameInTable="BeaconColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LLC" msprop:Generator_UserColumnName="LLC" msprop:Generator_ColumnPropNameInRow="LLC" msprop:Generator_ColumnVarNameInTable="columnLLC" msprop:Generator_ColumnPropNameInTable="LLCColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Data" msprop:Generator_UserColumnName="Data" msprop:Generator_ColumnPropNameInRow="Data" msprop:Generator_ColumnVarNameInTable="columnData" msprop:Generator_ColumnPropNameInTable="DataColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Crypt" msprop:Generator_UserColumnName="Crypt" msprop:Generator_ColumnPropNameInRow="Crypt" msprop:Generator_ColumnVarNameInTable="columnCrypt" msprop:Generator_ColumnPropNameInTable="CryptColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Weak" msprop:Generator_UserColumnName="Weak" msprop:Generator_ColumnPropNameInRow="Weak" msprop:Generator_ColumnVarNameInTable="columnWeak" msprop:Generator_ColumnPropNameInTable="WeakColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Carrier" msprop:Generator_UserColumnName="Carrier" msprop:Generator_ColumnPropNameInRow="Carrier" msprop:Generator_ColumnVarNameInTable="columnCarrier" msprop:Generator_ColumnPropNameInTable="CarrierColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Encoding" msprop:Generator_UserColumnName="Encoding" msprop:Generator_ColumnPropNameInRow="Encoding" msprop:Generator_ColumnVarNameInTable="columnEncoding" msprop:Generator_ColumnPropNameInTable="EncodingColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FirstTime" msprop:Generator_UserColumnName="FirstTime" msprop:Generator_ColumnPropNameInRow="FirstTime" msprop:Generator_ColumnVarNameInTable="columnFirstTime" msprop:Generator_ColumnPropNameInTable="FirstTimeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LastTime" msprop:Generator_UserColumnName="LastTime" msprop:Generator_ColumnPropNameInRow="LastTime" msprop:Generator_ColumnVarNameInTable="columnLastTime" msprop:Generator_ColumnPropNameInTable="LastTimeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BestQuality" msprop:Generator_UserColumnName="BestQuality" msprop:Generator_ColumnPropNameInRow="BestQuality" msprop:Generator_ColumnVarNameInTable="columnBestQuality" msprop:Generator_ColumnPropNameInTable="BestQualityColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BestSignal" msprop:Generator_UserColumnName="BestSignal" msprop:Generator_ColumnPropNameInRow="BestSignal" msprop:Generator_ColumnVarNameInTable="columnBestSignal" msprop:Generator_ColumnPropNameInTable="BestSignalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="BestNoise" msprop:Generator_UserColumnName="BestNoise" msprop:Generator_ColumnPropNameInRow="BestNoise" msprop:Generator_ColumnVarNameInTable="columnBestNoise" msprop:Generator_ColumnPropNameInTable="BestNoiseColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GPSMinLat" msprop:Generator_UserColumnName="GPSMinLat" msprop:Generator_ColumnPropNameInRow="GPSMinLat" msprop:Generator_ColumnVarNameInTable="columnGPSMinLat" msprop:Generator_ColumnPropNameInTable="GPSMinLatColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GPSMinLon" msprop:Generator_UserColumnName="GPSMinLon" msprop:Generator_ColumnPropNameInRow="GPSMinLon" msprop:Generator_ColumnVarNameInTable="columnGPSMinLon" msprop:Generator_ColumnPropNameInTable="GPSMinLonColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GPSMinAlt" msprop:Generator_UserColumnName="GPSMinAlt" msprop:Generator_ColumnPropNameInRow="GPSMinAlt" msprop:Generator_ColumnVarNameInTable="columnGPSMinAlt" msprop:Generator_ColumnPropNameInTable="GPSMinAltColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GPSMinSpd" msprop:Generator_UserColumnName="GPSMinSpd" msprop:Generator_ColumnPropNameInRow="GPSMinSpd" msprop:Generator_ColumnVarNameInTable="columnGPSMinSpd" msprop:Generator_ColumnPropNameInTable="GPSMinSpdColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GPSMaxLat" msprop:Generator_UserColumnName="GPSMaxLat" msprop:Generator_ColumnPropNameInRow="GPSMaxLat" msprop:Generator_ColumnVarNameInTable="columnGPSMaxLat" msprop:Generator_ColumnPropNameInTable="GPSMaxLatColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GPSMaxLon" msprop:Generator_UserColumnName="GPSMaxLon" msprop:Generator_ColumnPropNameInRow="GPSMaxLon" msprop:Generator_ColumnVarNameInTable="columnGPSMaxLon" msprop:Generator_ColumnPropNameInTable="GPSMaxLonColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GPSMaxAlt" msprop:Generator_UserColumnName="GPSMaxAlt" msprop:Generator_ColumnPropNameInRow="GPSMaxAlt" msprop:Generator_ColumnVarNameInTable="columnGPSMaxAlt" msprop:Generator_ColumnPropNameInTable="GPSMaxAltColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GPSMaxSpd" msprop:Generator_UserColumnName="GPSMaxSpd" msprop:Generator_ColumnPropNameInRow="GPSMaxSpd" msprop:Generator_ColumnVarNameInTable="columnGPSMaxSpd" msprop:Generator_ColumnPropNameInTable="GPSMaxSpdColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GPSBestLat" msprop:Generator_UserColumnName="GPSBestLat" msprop:Generator_ColumnPropNameInRow="GPSBestLat" msprop:Generator_ColumnVarNameInTable="columnGPSBestLat" msprop:Generator_ColumnPropNameInTable="GPSBestLatColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GPSBestLon" msprop:Generator_UserColumnName="GPSBestLon" msprop:Generator_ColumnPropNameInRow="GPSBestLon" msprop:Generator_ColumnVarNameInTable="columnGPSBestLon" msprop:Generator_ColumnPropNameInTable="GPSBestLonColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="GPSBestAlt" msprop:Generator_UserColumnName="GPSBestAlt" msprop:Generator_ColumnPropNameInRow="GPSBestAlt" msprop:Generator_ColumnVarNameInTable="columnGPSBestAlt" msprop:Generator_ColumnPropNameInTable="GPSBestAltColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Datasize" msprop:Generator_UserColumnName="Datasize" msprop:Generator_ColumnPropNameInRow="Datasize" msprop:Generator_ColumnVarNameInTable="columnDatasize" msprop:Generator_ColumnPropNameInTable="DatasizeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IPType" msprop:Generator_UserColumnName="IPType" msprop:Generator_ColumnPropNameInRow="IPType" msprop:Generator_ColumnVarNameInTable="columnIPType" msprop:Generator_ColumnPropNameInTable="IPTypeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IP" msprop:Generator_UserColumnName="IP" msprop:Generator_ColumnPropNameInRow="IP" msprop:Generator_ColumnVarNameInTable="columnIP" msprop:Generator_ColumnPropNameInTable="IPColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Data" />
+      <xs:field xpath="mstns:BSSID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

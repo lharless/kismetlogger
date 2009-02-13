@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KismetLogger", "KismetLogger.csproj", "{E9737662-0D45-4C20-B76B-F496386EFF25}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		2.0|Any CPU = 2.0|Any CPU
+		2.0|Compact Framework = 2.0|Compact Framework
+		2.0|Itanium = 2.0|Itanium
+		2.0|Mixed Platforms = 2.0|Mixed Platforms
+		2.0|Pocket PC 2003 (ARMV4) = 2.0|Pocket PC 2003 (ARMV4)
+		2.0|Win32 = 2.0|Win32
+		2.0|x64 = 2.0|x64
+		2.0|x86 = 2.0|x86
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Compact Framework = Debug|Compact Framework
+		Debug|Itanium = Debug|Itanium
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Pocket PC 2003 (ARMV4) = Debug|Pocket PC 2003 (ARMV4)
+		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Compact Framework = Release|Compact Framework
+		Release|Itanium = Release|Itanium
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Pocket PC 2003 (ARMV4) = Release|Pocket PC 2003 (ARMV4)
+		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.2.0|Any CPU.ActiveCfg = Release|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.2.0|Any CPU.Build.0 = Release|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.2.0|Compact Framework.ActiveCfg = 2.0|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.2.0|Itanium.ActiveCfg = 2.0|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.2.0|Mixed Platforms.ActiveCfg = 2.0|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.2.0|Mixed Platforms.Build.0 = 2.0|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.2.0|Pocket PC 2003 (ARMV4).ActiveCfg = 2.0|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.2.0|Win32.ActiveCfg = 2.0|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.2.0|x64.ActiveCfg = 2.0|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.2.0|x86.ActiveCfg = 2.0|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Debug|Compact Framework.ActiveCfg = Debug|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Debug|Itanium.ActiveCfg = Debug|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Debug|Pocket PC 2003 (ARMV4).ActiveCfg = Debug|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Release|Compact Framework.ActiveCfg = Release|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Release|Itanium.ActiveCfg = Release|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Release|Pocket PC 2003 (ARMV4).ActiveCfg = Release|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Release|Win32.ActiveCfg = Release|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Release|x64.ActiveCfg = Release|Any CPU
+		{E9737662-0D45-4C20-B76B-F496386EFF25}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Assemblies Version="805306377">
+  <Assembly Name="MyGeneration.dOOdads, Version=5.0.0.0, Culture=neutral" Image="d344cc51-261e-441b-9379-ec7bf7e2ed6c" Timestamp="633201407980000000" />
+  <Assembly Name="SQLite.NET, Version=0.21.1869.3794, Culture=neutral, PublicKeyToken=c273bd375e695f9c" Image="7a8e2bd1-b09a-499d-9755-8ebb79c0a1ab" Timestamp="632618282360000000" />
+  <Assembly Name="System.Data.SQLite, Version=1.0.51.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139" Image="b4ee1431-d342-45b9-9fba-d1da16ed2bb0" Timestamp="633585529560000000" XmlDocIndexTimestamp="633585522260000000" />
+  <Assembly Name="System.Data.SQLite, Version=1.0.60.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139" Image="50773b79-9012-4f13-a4f8-aacf3280c1ef" Timestamp="633585529560000000" XmlDocIndexTimestamp="633585522260000000" />
+</Assemblies>

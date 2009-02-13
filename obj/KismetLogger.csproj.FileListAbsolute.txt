@@ -1,0 +1,8 @@
+G:\kismetlogger\bin\Debug\KismetLogger.exe.config
+G:\kismetlogger\obj\Debug\ResolveAssemblyReference.cache
+G:\kismetlogger\bin\Debug\KismetLogger.exe
+G:\kismetlogger\bin\Debug\KismetLogger.pdb
+G:\kismetlogger\bin\Debug\System.Data.SQLite.dll
+G:\kismetlogger\bin\Debug\System.Data.SQLite.xml
+G:\kismetlogger\obj\Debug\KismetLogger.exe
+G:\kismetlogger\obj\Debug\KismetLogger.pdb

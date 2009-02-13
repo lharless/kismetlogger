@@ -1,0 +1,184 @@
+<Configuration>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Qualified:System.Data.SQLite.SQLiteParameterCollection">
+      <Item value="Add" priority="12" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.Common.DbParameterCollection">
+      <Item value="Add" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.SQLite.SQLiteConnection">
+      <Item value="ConnectionString" priority="0" />
+      <Item value="Close" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@KismetLogger.Properties.Settings">
+      <Item value="Default" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Convert">
+      <Item value="ToInt16" priority="23" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@KismetLogger.Properties.Settings.Default">
+      <Item value="ConnectionString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Windows.Forms.Application">
+      <Item value="StartupPath" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System">
+      <Item value="Convert" priority="6" />
+      <Item value="Decimal" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@KismetLogger.Properties">
+      <Item value="Settings" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@KismetLogger">
+      <Item value="KismetDataTableAdapters" priority="1" />
+      <Item value="Properties" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@">
+      <Item value="Select" priority="0" />
+      <Item value="Parameters" priority="21" />
+      <Item value="BSSID" priority="0" />
+      <Item value="GetType" priority="1" />
+      <Item value="Dispose" priority="1" />
+      <Item value="DataSet" priority="3" />
+      <Item value="Update" priority="0" />
+      <Item value="CreateParameter" priority="86" />
+      <Item value="Rows" priority="22" />
+      <Item value="Signal" priority="1" />
+      <Item value="ContainsValue" priority="1" />
+      <Item value="wirelessnetwork" priority="27" />
+      <Item value="ExecuteNonQuery" priority="6" />
+      <Item value="InsertQuery" priority="3" />
+      <Item value="Remove" priority="2" />
+      <Item value="ExecuteReader" priority="2" />
+      <Item value="GetDataByBssid" priority="3" />
+      <Item value="CreateObjRef" priority="0" />
+      <Item value="Clear" priority="0" />
+      <Item value="CommandText" priority="10" />
+      <Item value="ParameterName" priority="12" />
+      <Item value="FillByGpsData" priority="0" />
+      <Item value="BeginTransaction" priority="2" />
+      <Item value="Name" priority="4" />
+      <Item value="GetDataByGpsFile" priority="0" />
+      <Item value="Message" priority="0" />
+      <Item value="ToString" priority="2" />
+      <Item value="Items" priority="20" />
+      <Item value="Value" priority="87" />
+      <Item value="GetDataByClientBssid" priority="2" />
+      <Item value="InnerException" priority="0" />
+      <Item value="NextResult" priority="1" />
+      <Item value="DirectoryName" priority="0" />
+      <Item value="Close" priority="11" />
+      <Item value="Columns" priority="1" />
+      <Item value="Lat" priority="0" />
+      <Item value="CreateCommand" priority="5" />
+      <Item value="Lon" priority="0" />
+      <Item value="Insert" priority="0" />
+      <Item value="Add" priority="2" />
+      <Item value="GetDataByGpsData" priority="1" />
+      <Item value="Commit" priority="1" />
+      <Item value="Connection" priority="2" />
+      <Item value="Read" priority="6" />
+      <Item value="CreateDataReader" priority="4" />
+      <Item value="HasRows" priority="1" />
+      <Item value="Fill" priority="0" />
+      <Item value="GetData" priority="0" />
+      <Item value="FillByUnknownOui" priority="0" />
+      <Item value="GetDataByUnknownOui" priority="1" />
+      <Item value="UpdateQuery" priority="1" />
+      <Item value="GetDataByEncType" priority="0" />
+      <Item value="Length" priority="1" />
+      <Item value="MoveTo" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataRowCollection">
+      <Item value="Count" priority="16" />
+      <Item value="[]" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine" priority="43" />
+      <Item value="Write" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:detectionrunWirelessnetworkPackets">
+      <Item value="total" priority="0" />
+      <Item value="dupeiv" priority="0" />
+      <Item value="LLC" priority="0" />
+      <Item value="weak" priority="1" />
+      <Item value="crypt" priority="0" />
+      <Item value="data" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Data.DataSet">
+      <Item value="Tables" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.IO.File">
+      <Item value="OpenWrite" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:detectionrunWirelessnetwork">
+      <Item value="wirelessclient" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:detectionrunWirelessnetworkWirelessclient[]">
+      <Item value="Length" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:string">
+      <Item value="Substring" priority="0" />
+      <Item value="Length" priority="0" />
+      <Item value="IndexOf" priority="1" />
+      <Item value="ToUpper" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:object">
+      <Item value="ToString" priority="11" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.FileInfo">
+      <Item value="Name" priority="0" />
+      <Item value="LastAccessTime" priority="1" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <EditorManager>
+    <RecentFiles>
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:_ssidchanges.cs" caret="15185" scrollPosition="0|703" />
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:_Clients.cs" caret="61679" scrollPosition="0|2426" />
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:Data.cs" caret="103740" scrollPosition="0|4421" />
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/d:Properties/f:Settings.Designer.cs" caret="1086" scrollPosition="0|11" />
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:Settings.cs" caret="0" scrollPosition="0|0" />
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:KismetData.xsd" caret="264752" scrollPosition="138|0" />
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:GPSData.cs" caret="0" scrollPosition="0|0" />
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:kismetxml.cs" caret="1653" scrollPosition="0|44" />
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:KismetData.xss" caret="0" scrollPosition="0|0" />
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:KismetData.Designer.cs" caret="207957" scrollPosition="0|4447" />
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:KismetData.cs" caret="0" scrollPosition="0|0" />
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:KismetData.xsc" caret="0" scrollPosition="0|0" />
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:Class1.cs" caret="90549" scrollPosition="0|1769" />
+    </RecentFiles>
+  </EditorManager>
+  <FileStructureView>
+    <AutoScrollToSource>False</AutoScrollToSource>
+    <TrackCaretLocation>False</TrackCaretLocation>
+  </FileStructureView>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <ReFormatCode>
+    <ReorderMembers>False</ReorderMembers>
+    <OptimizeUsings>False</OptimizeUsings>
+    <RemoveRedundantThis>True</RemoveRedundantThis>
+    <ShortenReferences>False</ShortenReferences>
+  </ReFormatCode>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <SharedSolutionDisabledTemplatesManager>
+    <DisabledTemplates />
+  </SharedSolutionDisabledTemplatesManager>
+  <UnitTestRunner>
+    <CustomStartDirectory>
+    </CustomStartDirectory>
+    <UseShadowCopy>True</UseShadowCopy>
+    <UseCustomFolder>False</UseCustomFolder>
+    <Providers />
+  </UnitTestRunner>
+  <UserSolutionDisabledTemplatesManager>
+    <DisabledTemplates />
+  </UserSolutionDisabledTemplatesManager>
+</Configuration>
