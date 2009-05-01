@@ -33,7 +33,7 @@
     <RemoteDebugMachine>
     </RemoteDebugMachine>
     <StartAction>Project</StartAction>
-    <StartArguments>-d</StartArguments>
+    <StartArguments>-x</StartArguments>
     <StartPage>
     </StartPage>
     <StartProgram>

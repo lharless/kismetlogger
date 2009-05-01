@@ -15,6 +15,7 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Convert">
       <Item value="ToInt16" priority="23" />
+      <Item value="ToDouble" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@KismetLogger.Properties.Settings.Default">
       <Item value="ConnectionString" priority="0" />
@@ -23,7 +24,7 @@
       <Item value="StartupPath" priority="3" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System">
-      <Item value="Convert" priority="6" />
+      <Item value="Convert" priority="7" />
       <Item value="Decimal" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@KismetLogger.Properties">
@@ -45,7 +46,7 @@
       <Item value="Rows" priority="22" />
       <Item value="Signal" priority="1" />
       <Item value="ContainsValue" priority="1" />
-      <Item value="wirelessnetwork" priority="27" />
+      <Item value="wirelessnetwork" priority="28" />
       <Item value="ExecuteNonQuery" priority="6" />
       <Item value="InsertQuery" priority="3" />
       <Item value="Remove" priority="2" />
@@ -60,14 +61,14 @@
       <Item value="Name" priority="4" />
       <Item value="GetDataByGpsFile" priority="0" />
       <Item value="Message" priority="0" />
-      <Item value="ToString" priority="2" />
+      <Item value="ToString" priority="3" />
       <Item value="Items" priority="20" />
       <Item value="Value" priority="87" />
       <Item value="GetDataByClientBssid" priority="2" />
       <Item value="InnerException" priority="0" />
       <Item value="NextResult" priority="1" />
       <Item value="DirectoryName" priority="0" />
-      <Item value="Close" priority="11" />
+      <Item value="Close" priority="12" />
       <Item value="Columns" priority="1" />
       <Item value="Lat" priority="0" />
       <Item value="CreateCommand" priority="5" />
@@ -77,24 +78,30 @@
       <Item value="GetDataByGpsData" priority="1" />
       <Item value="Commit" priority="1" />
       <Item value="Connection" priority="2" />
-      <Item value="Read" priority="6" />
-      <Item value="CreateDataReader" priority="4" />
+      <Item value="Read" priority="7" />
+      <Item value="CreateDataReader" priority="5" />
       <Item value="HasRows" priority="1" />
       <Item value="Fill" priority="0" />
-      <Item value="GetData" priority="0" />
+      <Item value="GetData" priority="1" />
       <Item value="FillByUnknownOui" priority="0" />
       <Item value="GetDataByUnknownOui" priority="1" />
       <Item value="UpdateQuery" priority="1" />
       <Item value="GetDataByEncType" priority="0" />
-      <Item value="Length" priority="1" />
+      <Item value="Length" priority="4" />
       <Item value="MoveTo" priority="1" />
+      <Item value="GetDataByFirstSeen" priority="1" />
+      <Item value="Settings" priority="0" />
+      <Item value="GetDataByLatLon" priority="0" />
+      <Item value="FillByMinMaxLon" priority="0" />
+      <Item value="GetDataByMinMaxLon" priority="0" />
+      <Item value="MinLonQuery" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.Data.DataRowCollection">
       <Item value="Count" priority="16" />
       <Item value="[]" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:@System.Console">
-      <Item value="WriteLine" priority="43" />
+      <Item value="WriteLine" priority="60" />
       <Item value="Write" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:detectionrunWirelessnetworkPackets">
@@ -113,6 +120,7 @@
     </ItemStatistics>
     <ItemStatistics item="Qualified:detectionrunWirelessnetwork">
       <Item value="wirelessclient" priority="1" />
+      <Item value="firsttime" priority="0" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:detectionrunWirelessnetworkWirelessclient[]">
       <Item value="Length" priority="1" />
@@ -120,15 +128,25 @@
     <ItemStatistics item="Qualified:string">
       <Item value="Substring" priority="0" />
       <Item value="Length" priority="0" />
-      <Item value="IndexOf" priority="1" />
+      <Item value="IndexOf" priority="2" />
       <Item value="ToUpper" priority="2" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:object">
-      <Item value="ToString" priority="11" />
+      <Item value="ToString" priority="16" />
     </ItemStatistics>
     <ItemStatistics item="Qualified:System.IO.FileInfo">
       <Item value="Name" priority="0" />
       <Item value="LastAccessTime" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Globalization.DateTimeStyles">
+      <Item value="None" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime">
+      <Item value="TryParse" priority="0" />
+      <Item value="ParseExact" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Xml.XmlWriterSettings">
+      <Item value="OutputMethod" priority="0" />
     </ItemStatistics>
   </CompletionStatisticsManager>
   <EditorManager>
@@ -142,10 +160,9 @@
       <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:GPSData.cs" caret="0" scrollPosition="0|0" />
       <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:kismetxml.cs" caret="1653" scrollPosition="0|44" />
       <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:KismetData.xss" caret="0" scrollPosition="0|0" />
-      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:KismetData.Designer.cs" caret="207957" scrollPosition="0|4447" />
       <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:KismetData.cs" caret="0" scrollPosition="0|0" />
       <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:KismetData.xsc" caret="0" scrollPosition="0|0" />
-      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:Class1.cs" caret="90549" scrollPosition="0|1769" />
+      <File id="E9737662-0D45-4C20-B76B-F496386EFF25/f:Class1.cs" caret="44002" scrollPosition="0|1020" />
     </RecentFiles>
   </EditorManager>
   <FileStructureView>

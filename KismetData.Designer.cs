@@ -8091,62 +8091,130 @@ namespace KismetLogger.KismetDataTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[5];
+            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[8];
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT [oui], [totalpacketsweak], [totalpacketstotal], [totalpacketsllc], [totalpacketsdupeiv], [totalpacketsdata], [totalpacketscrypt], [Network], [NetType], [ESSID], [BSSID], [Info], [Channel], [Cloaked], [Encryption], [Decrypted], [MaxRate], [MaxSeenRate], [Beacon], [LLC], [Data], [Crypt], [Weak], [Total], [Carrier], [Encoding], [FirstTime], [LastTime], [BestQuality], [BestSignal], [BestNoise], [GPSMinLat], [GPSMinLon], [GPSMinAlt], [GPSMinSpd], [GPSMaxLat], [GPSMaxLon], [GPSMaxAlt], [GPSMaxSpd], [GPSBestLat], [GPSBestLon], [GPSBestAlt], [Datasize], [IPType], [IP] FROM [Data]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT     oui, totalpacketsweak, totalpacketstotal, totalpacketsllc, totalpacketsdupeiv, totalpacketsdata, totalpacketscrypt, Network, NetType, ESSID, BSSID, Info, 
+            this._commandCollection[1].CommandText = @"SELECT     oui, NetType, data.ESSID, data.BSSID, Info, 
+                      Channel, Cloaked, Encryption,FirstTime, LastTime, gpsdata.lat, gpsdata.lon
+FROM         Data INNER JOIN
+                      gpsdata ON gpsdata.bssid = data.bssid
+where (data.NetType = 'infrastructure') AND (data.Encryption = @theenc)
+
+and gpsdata.lon < @minlon and gpsdata.lon > @maxlon";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@theenc";
+            param.DbType = global::System.Data.DbType.Object;
+            param.Size = 1024;
+            param.SourceColumn = "Encryption";
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@minlon";
+            param.DbType = global::System.Data.DbType.Object;
+            param.Size = 1024;
+            param.SourceColumn = "lon";
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@maxlon";
+            param.DbType = global::System.Data.DbType.Object;
+            param.Size = 1024;
+            param.SourceColumn = "lon";
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::System.Data.SQLite.SQLiteCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT     oui, totalpacketsweak, totalpacketstotal, totalpacketsllc, totalpacketsdupeiv, totalpacketsdata, totalpacketscrypt, Network, NetType, ESSID, BSSID, Info, 
                       Channel, Cloaked, Encryption, Decrypted, MaxRate, MaxSeenRate, Beacon, LLC, Data, Crypt, Weak, Total, Carrier, Encoding, FirstTime, LastTime, 
                       BestQuality, BestSignal, BestNoise, GPSMinLat, GPSMinLon, GPSMinAlt, GPSMinSpd, GPSMaxLat, GPSMaxLon, GPSMaxAlt, GPSMaxSpd, 
                       GPSBestLat, GPSBestLon, GPSBestAlt, Datasize, IPType, IP
 FROM         Data
 WHERE     (BSSID = @param1)";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            global::System.Data.SQLite.SQLiteParameter param = new global::System.Data.SQLite.SQLiteParameter();
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@param1";
             param.DbType = global::System.Data.DbType.String;
             param.Size = 2147483647;
             param.SourceColumn = "BSSID";
-            this._commandCollection[1].Parameters.Add(param);
-            this._commandCollection[2] = new global::System.Data.SQLite.SQLiteCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT     oui , BSSID\r\nFROM         Data\r\nWHERE     (oui = \'Unknown\')";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT     oui, totalpacketsweak, totalpacketstotal, totalpacketsllc, totalpacketsdupeiv, totalpacketsdata, totalpacketscrypt, Network, NetType, ESSID, BSSID, Info, 
+            this._commandCollection[3].CommandText = @"SELECT     oui, data.firsttime, data.lasttime, Network, NetType, data.ESSID, data.BSSID,gpsdata.lat, gpsdata.lon
+FROM         Data INNER JOIN
+                      gpsdata ON gpsdata.bssid = data.bssid
+WHERE     (NetType = 'infrastructure') AND (Encryption = @theenc)
+
+order by gpsdata.lon
+";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@theenc";
+            param.DbType = global::System.Data.DbType.Object;
+            param.Size = 1024;
+            param.SourceColumn = "";
+            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4] = new global::System.Data.SQLite.SQLiteCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"SELECT     oui, totalpacketsweak, totalpacketstotal, totalpacketsllc, totalpacketsdupeiv, totalpacketsdata, totalpacketscrypt, Network, NetType, ESSID, BSSID, Info, 
                       Channel, Cloaked, Encryption, Decrypted, MaxRate, MaxSeenRate, Beacon, LLC, Data, Crypt, Weak, Total, Carrier, Encoding, FirstTime, LastTime, 
                       BestQuality, BestSignal, BestNoise, GPSMinLat, GPSMinLon, GPSMinAlt, GPSMinSpd, GPSMaxLat, GPSMaxLon, GPSMaxAlt, GPSMaxSpd, 
                       GPSBestLat, GPSBestLon, GPSBestAlt, Datasize, IPType, IP
 FROM         Data
-WHERE     (NetType = 'infrastructure') AND (Encryption = @theenc)";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+WHERE     (FirstTime > @startdate)
+and firsttime < @enddate";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@startdate";
+            param.DbType = global::System.Data.DbType.Object;
+            param.Size = 1024;
+            param.SourceColumn = "FirstTime";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::System.Data.SQLite.SQLiteParameter();
+            param.ParameterName = "@enddate";
+            param.DbType = global::System.Data.DbType.Object;
+            param.Size = 1024;
+            param.SourceColumn = "FirstTime";
+            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5] = new global::System.Data.SQLite.SQLiteCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = @"SELECT     oui, totalpacketsweak, totalpacketstotal, totalpacketsllc, totalpacketsdupeiv, totalpacketsdata, totalpacketscrypt, Network, NetType, ESSID, BSSID, Info, 
+                      Channel, Cloaked, Encryption, Decrypted, MaxRate, MaxSeenRate, Beacon, LLC, Data, Crypt, Weak, Total, Carrier, Encoding, FirstTime, LastTime, 
+                      BestQuality, BestSignal, BestNoise, GPSMinLat, GPSMinLon, GPSMinAlt, GPSMinSpd, GPSMaxLat, GPSMaxLon, GPSMaxAlt, GPSMaxSpd, 
+                      GPSBestLat, GPSBestLon, GPSBestAlt, Datasize, IPType, IP
+FROM         Data
+WHERE     (NetType = 'infrastructure') AND (Encryption = @theenc)
+and (Essid not like '2WIRE%')
+";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@theenc";
-            param.DbType = global::System.Data.DbType.String;
-            param.Size = 2147483647;
+            param.DbType = global::System.Data.DbType.Object;
+            param.Size = 1024;
             param.SourceColumn = "Encryption";
-            this._commandCollection[3].Parameters.Add(param);
-            this._commandCollection[4] = new global::System.Data.SQLite.SQLiteCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "UPDATE    Data\r\nSET              oui = @oui\r\nWHERE     (BSSID = @BSSID)";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6] = new global::System.Data.SQLite.SQLiteCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = "SELECT     oui , BSSID\r\nFROM         Data\r\nWHERE     (oui = \'Unknown\')";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7] = new global::System.Data.SQLite.SQLiteCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = "UPDATE    Data\r\nSET              oui = @oui\r\nWHERE     (BSSID = @BSSID)";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@oui";
             param.DbType = global::System.Data.DbType.String;
             param.Size = 2147483647;
             param.SourceColumn = "oui";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[7].Parameters.Add(param);
             param = new global::System.Data.SQLite.SQLiteParameter();
             param.ParameterName = "@BSSID";
             param.DbType = global::System.Data.DbType.String;
             param.Size = 2147483647;
             param.SourceColumn = "BSSID";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[7].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8174,8 +8242,66 @@ WHERE     (NetType = 'infrastructure') AND (Encryption = @theenc)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(KismetData.DatanewDataTable dataTable, string param1) {
+        public virtual int FilByLatLon(KismetData.DatanewDataTable dataTable, object theenc, object minlon, object maxlon) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((theenc == null)) {
+                throw new global::System.ArgumentNullException("theenc");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(theenc));
+            }
+            if ((minlon == null)) {
+                throw new global::System.ArgumentNullException("minlon");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((object)(minlon));
+            }
+            if ((maxlon == null)) {
+                throw new global::System.ArgumentNullException("maxlon");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((object)(maxlon));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual KismetData.DatanewDataTable GetDataByLatLon(object theenc, object minlon, object maxlon) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((theenc == null)) {
+                throw new global::System.ArgumentNullException("theenc");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(theenc));
+            }
+            if ((minlon == null)) {
+                throw new global::System.ArgumentNullException("minlon");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((object)(minlon));
+            }
+            if ((maxlon == null)) {
+                throw new global::System.ArgumentNullException("maxlon");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((object)(maxlon));
+            }
+            KismetData.DatanewDataTable dataTable = new KismetData.DatanewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(KismetData.DatanewDataTable dataTable, string param1) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((param1 == null)) {
                 throw new global::System.ArgumentNullException("param1");
             }
@@ -8193,7 +8319,7 @@ WHERE     (NetType = 'infrastructure') AND (Encryption = @theenc)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual KismetData.DatanewDataTable GetDataByBssid(string param1) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((param1 == null)) {
                 throw new global::System.ArgumentNullException("param1");
             }
@@ -8207,9 +8333,113 @@ WHERE     (NetType = 'infrastructure') AND (Encryption = @theenc)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByEncType(KismetData.DatanewDataTable dataTable, object theenc) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((theenc == null)) {
+                throw new global::System.ArgumentNullException("theenc");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(theenc));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual KismetData.DatanewDataTable GetDataByUnknownOui() {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
+        public virtual KismetData.DatanewDataTable GetDataByEncType(object theenc) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((theenc == null)) {
+                throw new global::System.ArgumentNullException("theenc");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(theenc));
+            }
+            KismetData.DatanewDataTable dataTable = new KismetData.DatanewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByFirstSeen(KismetData.DatanewDataTable dataTable, object startdate, object enddate) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((startdate == null)) {
+                throw new global::System.ArgumentNullException("startdate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(startdate));
+            }
+            if ((enddate == null)) {
+                throw new global::System.ArgumentNullException("enddate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((object)(enddate));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual KismetData.DatanewDataTable GetDataByFirstSeen(object startdate, object enddate) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            if ((startdate == null)) {
+                throw new global::System.ArgumentNullException("startdate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(startdate));
+            }
+            if ((enddate == null)) {
+                throw new global::System.ArgumentNullException("enddate");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((object)(enddate));
+            }
+            KismetData.DatanewDataTable dataTable = new KismetData.DatanewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByNo2Wire(KismetData.DatanewDataTable dataTable, object theenc) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((theenc == null)) {
+                throw new global::System.ArgumentNullException("theenc");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(theenc));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual KismetData.DatanewDataTable GetDataByEncTypeNo2Wire(object theenc) {
+            this.Adapter.SelectCommand = this.CommandCollection[5];
+            if ((theenc == null)) {
+                throw new global::System.ArgumentNullException("theenc");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(theenc));
+            }
             KismetData.DatanewDataTable dataTable = new KismetData.DatanewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8218,14 +8448,8 @@ WHERE     (NetType = 'infrastructure') AND (Encryption = @theenc)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual KismetData.DatanewDataTable GetDataByEncType(string theenc) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((theenc == null)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(theenc));
-            }
+        public virtual KismetData.DatanewDataTable GetDataByUnknownOui() {
+            this.Adapter.SelectCommand = this.CommandCollection[6];
             KismetData.DatanewDataTable dataTable = new KismetData.DatanewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -9852,7 +10076,7 @@ WHERE     (NetType = 'infrastructure') AND (Encryption = @theenc)";
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQuery(string oui, string BSSID) {
-            global::System.Data.SQLite.SQLiteCommand command = this.CommandCollection[4];
+            global::System.Data.SQLite.SQLiteCommand command = this.CommandCollection[7];
             if ((oui == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -10521,7 +10745,7 @@ WHERE     (NetType = 'infrastructure') AND (Encryption = @theenc)";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[2];
+            this._commandCollection = new global::System.Data.SQLite.SQLiteCommand[4];
             this._commandCollection[0] = new global::System.Data.SQLite.SQLiteCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [bssid], [source], [timesec], [timeusec], [lat], [lon], [alt], [speed], [h" +
@@ -10538,6 +10762,14 @@ WHERE     (NetType = 'infrastructure') AND (Encryption = @theenc)";
             param.Size = 2147483647;
             param.SourceColumn = "bssid";
             this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::System.Data.SQLite.SQLiteCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT      MIN(lon) AS minlon\r\nFROM         GPSData";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3] = new global::System.Data.SQLite.SQLiteCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "SELECT min(lon) as minlon FROM [GPSData]";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10591,6 +10823,28 @@ WHERE     (NetType = 'infrastructure') AND (Encryption = @theenc)";
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Param1));
             }
+            KismetData.GPSDatanewDataTable dataTable = new KismetData.GPSDatanewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByMinMaxLon(KismetData.GPSDatanewDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual KismetData.GPSDatanewDataTable GetDataByMinMaxLon() {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             KismetData.GPSDatanewDataTable dataTable = new KismetData.GPSDatanewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -11097,6 +11351,33 @@ WHERE     (NetType = 'infrastructure') AND (Encryption = @theenc)";
                     global::System.Nullable<decimal> Original_quality, 
                     global::System.Nullable<decimal> Original_noise) {
             return this.Update(Original_bssid, source, timesec, timeusec, lat, lon, alt, speed, heading, fix, signal, quality, noise, Original_bssid, Original_source, Original_timesec, Original_timeusec, Original_lat, Original_lon, Original_alt, Original_speed, Original_heading, Original_fix, Original_signal, Original_quality, Original_noise);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual object MinLonQuery() {
+            global::System.Data.SQLite.SQLiteCommand command = this.CommandCollection[3];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((object)(returnValue));
+            }
         }
     }
     

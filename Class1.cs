@@ -54,6 +54,7 @@ namespace KismetLogger
 		    bool allgps = false;
 		    bool wigledata = false;
 		    bool newoui = false;
+		    bool convertdates = false;
 			//bool oui=false;
 			string theouifilename= Application.StartupPath+"\\oui.txt";
 			FileInfo fi = new FileInfo(theouifilename);
@@ -76,6 +77,7 @@ namespace KismetLogger
 				gps = true;
 				xml = true;
 				clean=false;
+			    convertdates = false;
 
 			}
 			else
@@ -83,6 +85,10 @@ namespace KismetLogger
                 if(args[0].IndexOf("d")!=-1)
                 {
                     dot = true;
+                }
+                if(args[0].IndexOf("u") !=-1)
+                {
+                    convertdates = true;
                 }
                 if(args[0].IndexOf("o") !=-1)
                 {
@@ -113,7 +119,27 @@ namespace KismetLogger
                     wigledata = true;
                 }
 			}
-            //-g
+            /*
+            SQLiteConnectionStringBuilder builder = new SQLiteConnectionStringBuilder();
+            builder.DataSource = Application.StartupPath + "\\kismetdata.db";
+            SQLiteConnection cnn = new SQLiteConnection(builder.ToString());
+            SQLiteCommand command = cnn.CreateCommand();
+            cnn.Open();
+            KismetData thenewdata = new KismetData();
+            string thecommandtext = "INSERT INTO Data(oui , totalpacketsweak , totalpacketstotal , totalpacketsllc , totalpacketsdupeiv , totalpacketsdata , totalpacketscrypt , Network , NetType , ESSID , BSSID , Info , Channel , Cloaked , Encryption , Decrypted , MaxRate , MaxSeenRate , Beacon , LLC , Data , Crypt , Weak , Total , Carrier , Encoding , FirstTime , LastTime , BestQuality , BestSignal , BestNoise , GPSMinLat , GPSMinLon , GPSMinAlt , GPSMinSpd , GPSMaxLat , GPSMaxLon , GPSMaxAlt , GPSMaxSpd , GPSBestLat , GPSBestLon , GPSBestAlt , Datasize , IPType , IP ) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+            SQLiteDataAdapter theadaptor = new SQLiteDataAdapter("SELECT * from data where NetType=\"infrastructure\"", cnn);
+            DataSet theset = new DataSet();
+            theadaptor.Fill(theset);
+            foreach (DataRow therow in theset.Tables["Data"].Rows)
+            {
+                Console.WriteLine(therow["bssid"]);
+            }
+			*/
+			//CleanGPSFiles(dir);
+			//-o ouifilename
+			//CreateOUITable();
+			//-g
 			if(gps)
 			{
 				//ProcessGPSFiles(theconnectionstring, dir, xs2,  thegpsdata,  thegpsfiles);
@@ -130,10 +156,17 @@ namespace KismetLogger
                 //CreateDotFile();
                 RenameFiles();
             }
+            if(convertdates)
+            {
+                convertalldates();
+            }
 			//-k
 			if(kml)
-			{                
-                CreateKmlFileNew(thegpsdata, theconnectionstring);
+			{
+                //AddGPSOrphans();
+                //ProcessCSVFiles(theconnectionstring, dir);
+				//CreateKmlFile(thegpsdata, theconnectionstring);
+                CreateKmlFileNew(thegpsdata, theconnectionstring, false);
 			}
             if(clean)
             {
@@ -144,7 +177,30 @@ namespace KismetLogger
                 DoNewOuis();
             }
             if(allgps)
-            {                
+            {
+                /*
+                foreach (FileInfo f in dir.GetFiles("Kismet*.gps"))
+                {
+                    //Console.WriteLine(dir.ToString());
+                    FileStream fs2 = new FileStream(f.DirectoryName + "\\" + f.Name, FileMode.Open);
+
+
+                    Console.WriteLine("Processing " + f.Name);
+
+                    try
+                    {
+                        gpsrun ds2;
+
+                        ds2 = (gpsrun)xs2.Deserialize(fs2);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.ToString());
+                    }
+
+                    fs2.Close(s);
+                }
+                 * */
                 CleanGPSFiles(dir);
                 ProcessHugeGPSFiles(xs2);
                 
@@ -153,21 +209,150 @@ namespace KismetLogger
             {
                 DoWigleData();
             }
+			//-o
+			
+			//AnalyzeClients(theconnectionstring);
+
+
+
+			/*
+			DirectoryInfo dir= new DirectoryInfo("c:\\");
+			
+			foreach (FileInfo f in dir.GetFiles("kismet*.csv"))
+			{
+				StreamReader sr = File.OpenText("c:\\" + f.Name);
+				string input;
+				input=sr.ReadLine();  // First line is header
+				string [] split = null;
+				_KismetData thedata = new _KismetData();
+				while ((input=sr.ReadLine())!=null)
+				{				
+					//Console.WriteLine("Insert");
+				
+					split=input.Split(new char [] {';'});
+					if(split.Length > 1)
+					{
+						thedata.AddNew();
+						thedata.Network=split[0];
+						thedata.NetType=split[1];
+						thedata.ESSID=split[2];
+						thedata.BSSID=split[3];
+						thedata.Info=split[4];
+						thedata.Channel=System.Convert.ToDecimal(split[5]);
+						thedata.Cloaked=split[6];
+						thedata.Encryption=split[7];
+						thedata.Decrypted=split[8];
+						thedata.MaxRate=System.Convert.ToDecimal(split[9]);
+						thedata.MaxSeenRate=System.Convert.ToDecimal(split[10]);
+						thedata.Beacon=split[11];
+						thedata.LLC=split[12];
+						thedata.Data=split[13];
+						thedata.Crypt=split[14];
+						thedata.Weak=System.Convert.ToDecimal(split[15]);
+						thedata.Total=System.Convert.ToDecimal(split[16]);
+						thedata.Carrier=System.Convert.ToDecimal(split[17]);
+						thedata.Encoding=split[18];
+						thedata.FirstTime=split[19];
+						thedata.LastTime=split[20];
+						thedata.BestQuality=split[21];
+						thedata.BestSignal=System.Convert.ToDecimal(split[22]);
+						thedata.BestNoise=System.Convert.ToDecimal(split[23]);
+						thedata.GPSMinLat=System.Convert.ToDecimal(split[24]);
+						thedata.GPSMinLon=System.Convert.ToDecimal(split[25]);
+						thedata.GPSMinAlt=System.Convert.ToDecimal(split[26]);
+						thedata.GPSMinSpd=System.Convert.ToDecimal(split[27]);
+						thedata.GPSMaxLat=System.Convert.ToDecimal(split[28]);
+						thedata.GPSMaxLon=System.Convert.ToDecimal(split[29]);
+						thedata.GPSMaxAlt=System.Convert.ToDecimal(split[30]);
+						thedata.GPSMaxSpd=System.Convert.ToDecimal(split[31]);
+						thedata.GPSBestLat=System.Convert.ToDecimal(split[32]);
+						thedata.GPSBestLon=System.Convert.ToDecimal(split[33]);
+						thedata.GPSBestAlt=System.Convert.ToDecimal(split[34]);
+						thedata.Datasize=split[35];
+						thedata.IPType=split[36];
+						thedata.IP=split[37];
+						thedata.Save();
+					}
+
+				
+				}
+			}
+			*/
 		}
 
-        private static void RenameFiles()
+	    private static void convertalldates()
+	    {
+	        SQLiteConnectionStringBuilder builder = new SQLiteConnectionStringBuilder();
+            builder.DataSource = string.Format("{0}\\kismetdata.db", Application.StartupPath);
+            builder.SyncMode = SynchronizationModes.Off;
+            builder.CacheSize = 5000;
+            DataTable y;
+            SQLiteConnection connection = new SQLiteConnection(builder.ToString());
+            //SQLiteCommand command = connection.CreateCommand();
+            connection.Open();
+            DatanewTableAdapter thedatatableadaptor = new DatanewTableAdapter();
+	        y = thedatatableadaptor.GetData();
+	        string newfirsttime;
+	        string newlasttime;
+            DataTableReader datareader = y.CreateDataReader();
+            for (int i = 0; i < y.Rows.Count; i++)
+            {
+                datareader.Read();
+                string dbfirsttime = datareader["Firsttime"].ToString();
+                string dblasttime = datareader["Lasttime"].ToString();
+                //Console.WriteLine(dbfirsttime);
+                newfirsttime = GetNewtime(dbfirsttime);
+                newlasttime = GetNewtime(dblasttime);
+                    //Console.WriteLine(newfirsttime);
+                    //Console.WriteLine(newlasttime);
+                    Console.WriteLine("update data set firsttime=" + "'" + newfirsttime + "'" + " where bssid='" +
+                                      datareader["bssid"] + "';");
+                    Console.WriteLine("update data set lasttime=" + "'" + newlasttime + "'" + " where bssid='" +
+                                      datareader["bssid"] + "';");
+                
+            }
+	    }
+
+	    private static string GetNewtime(string thekismettime)
+	    {
+	        string[] stringfirsttime;
+            stringfirsttime = thekismettime.Split(new char[] { ' ' });
+	        string newfirsttime;
+	        string theyear;
+	        string theday;
+	        string themonth;
+	        string thetime;
+	        if(stringfirsttime[2] != "" )
+	        {
+	            themonth = MonthLookup(stringfirsttime[1]);
+	            theyear = stringfirsttime[4];
+	            theday = stringfirsttime[2];
+	            thetime = stringfirsttime[3];
+	        }
+	        else
+	        {
+	            themonth = MonthLookup(stringfirsttime[1]);
+	            theyear = stringfirsttime[5];
+	            theday = "0"+stringfirsttime[3];
+	            thetime = stringfirsttime[4];
+	        }
+	        newfirsttime = theyear + "-" + themonth + "-" + theday + " " +
+	                       thetime;
+	        return newfirsttime;
+	    }
+
+	    private static void RenameFiles()
         {
             string thedir = Application.StartupPath + "\\logs";
             DirectoryInfo dir = new DirectoryInfo(thedir);
             string oldfilename = "";
-            string newname;
-            foreach (FileInfo f in dir.GetFiles("Kismet-*-*-*.gps"))
+	        foreach (FileInfo f in dir.GetFiles("Kismet-*-*-*.gps"))
             {
                 oldfilename = f.Name;
                 Console.WriteLine(oldfilename);
                 string[] thestrings;
                 thestrings = oldfilename.Split(new char[] { '-' });
-                newname=thestrings[0]+"-" + thestrings[3] + MonthLookup(thestrings[1]) + thestrings[2] + "-" + thestrings[4];
+                string newname = thestrings[0]+"-" + thestrings[3] + MonthLookup(thestrings[1]) + thestrings[2] + "-" + thestrings[4];
                 Console.WriteLine(newname);
                 f.MoveTo(thedir + "\\" + newname);
             }
@@ -224,7 +409,7 @@ namespace KismetLogger
             t = theclientstableadaptor.GetDataByUnknownOui();
             DataTableReader thereader = t.CreateDataReader();
             DataTableReader datareader = y.CreateDataReader();
-            string thenewoui = "";
+            string thenewoui;
             int clientcount = 0;
             int datacount = 0;
             for (int i = 0; i < t.Rows.Count; i++)
@@ -362,7 +547,7 @@ namespace KismetLogger
             StreamReader sr = File.OpenText(Application.StartupPath + "\\out.txt");
             string input;
             DatanewTableAdapter thedatatableadaptor = new DatanewTableAdapter();
-            GPSDatanewTableAdapter thegpsdatatableadaptor = new GPSDatanewTableAdapter();
+            //GPSDatanewTableAdapter thegpsdatatableadaptor = new GPSDatanewTableAdapter();
             DataTable t;
             while ((input = sr.ReadLine()) != null)
             {
@@ -463,7 +648,8 @@ namespace KismetLogger
 						}
 						catch (Exception)
 						{
-						    //Console.WriteLine("Already in database");
+                            //Console.WriteLine(ex);
+						    Console.WriteLine("Already in database");
 						}
 					}
 										
@@ -484,7 +670,7 @@ namespace KismetLogger
 		}
 
 /*
-		private static void CleanGPSFilesOld(DirectoryInfo dir)
+		private static void CleanGPSFiles(DirectoryInfo dir)
 		{
 			foreach (FileInfo f in dir.GetFiles("Kismet*.gps"))
 			{
@@ -561,7 +747,28 @@ namespace KismetLogger
                     {
 
                         thegpsdata.Rewind();
-                        
+                        //do
+                        //{
+                        // 00:0D:72:2A:9A:39 Anne
+                        /*
+                        myXmlTextWriter.WriteStartElement("Placemark");
+                        myXmlTextWriter.WriteElementString("name",null,newdata.ESSID);
+                        myXmlTextWriter.WriteElementString("styleUrl",null,"#track");
+                        myXmlTextWriter.WriteStartElement("Point");
+                        myXmlTextWriter.WriteElementString("coordinates",null, thegpsdata.Lon+","+thegpsdata.Lat);
+                        myXmlTextWriter.WriteEndElement();
+                        myXmlTextWriter.WriteEndElement();
+                        */
+                        //	if(thegpsdata.Signal > thebestsignal)
+                        //	{
+                        //		thebestsignal=thegpsdata.Signal;
+                        //		thebestlon=thegpsdata.Lon;
+                        //		thebestlat=thegpsdata.Lat;
+                        //	}
+                        //Console.WriteLine(thegpsdata.Bssid);
+                        //Console.WriteLine(thegpsdata.Lat);
+                        //Console.WriteLine(thegpsdata.Lon);
+                        //} while(thegpsdata.MoveNext());
 
 
                         string clientstring = "";
@@ -570,6 +777,7 @@ namespace KismetLogger
                         myXmlTextWriter.WriteElementString("styleUrl", null, "#track");
                         myXmlTextWriter.WriteStartElement("description");
                         theclientdata.Where.Bssid.Value = newdata.BSSID;
+                        ///theclientdata.Where.Bssid.Operator = WhereParameter.Operand.Equal;
                         theclientdata.Query.Load();
                         if (theclientdata.RowCount != 0)
                         {
@@ -593,7 +801,19 @@ namespace KismetLogger
                         myXmlTextWriter.WriteElementString("h", null, "32");
                         myXmlTextWriter.WriteEndElement();
                         myXmlTextWriter.WriteEndElement();
-                        myXmlTextWriter.WriteStartElement("Point");                        
+                        myXmlTextWriter.WriteStartElement("Point");
+                        /*
+                        myXmlTextWriter.WriteStartElement("Style");
+                        if(newdata.Encryption=="None")
+                        {
+                            myXmlTextWriter.WriteElementString("icon",null,"node.open.png");
+                        }
+                        else
+                        {
+                            myXmlTextWriter.WriteElementString("icon",null,"node.closed.png");
+                        }
+                        myXmlTextWriter.WriteEndElement();
+                        */
                         myXmlTextWriter.WriteElementString("coordinates", null, thegpsdata.Lon + "," + thegpsdata.Lat);
                         myXmlTextWriter.WriteEndElement();
                         myXmlTextWriter.WriteEndElement();
@@ -603,22 +823,56 @@ namespace KismetLogger
             }
             myXmlTextWriter.WriteEndElement();
             newdata.Where.NetType.Value = "infrastructure";
+            ///newdata.Where.NetType.Operator = WhereParameter.Operand.Equal;
             newdata.Where.Encryption.Value = "None";
+            ///newdata.Where.Encryption.Operator = WhereParameter.Operand.Equal;
+
+            //Kisdata.Where.BSSID.Value="00:0F:3D:3E:41:9A";
+            //Kisdata.Where.BSSID.Operator=WhereParameter.Operand.Equal;
+            //Console.WriteLine(thegpsdata.Query.GenerateSQL());
             newdata.Query.Load();
             myXmlTextWriter.WriteStartElement("Folder");
             myXmlTextWriter.WriteElementString("name", null, "Open");
+            //Console.WriteLine(newdata.RowCount);
             if (newdata.RowCount != 0)
             {
                 newdata.Rewind();
                 do
                 {
                     thegpsdata.Where.Bssid.Value = newdata.BSSID;
+                    ///thegpsdata.Where.Bssid.Operator = WhereParameter.Operand.Equal;
+                    //Kisdata.Where.BSSID.Value="00:0F:3D:3E:41:9A";
+                    //Kisdata.Where.BSSID.Operator=WhereParameter.Operand.Equal;
+                    //Console.WriteLine(thegpsdata.Query.GenerateSQL());
                     thegpsdata.Query.Load();
-                    
+                    //thebestlat = 0;
+                    //thebestlon = 0;
+                    //thebestsignal=-257;
                     if (thegpsdata.RowCount != 0)
                     {
                         thegpsdata.Rewind();
-                        
+                        //do
+                        //{
+                        // 00:0D:72:2A:9A:39 Anne
+                        /*
+                        myXmlTextWriter.WriteStartElement("Placemark");
+                        myXmlTextWriter.WriteElementString("name",null,newdata.ESSID);
+                        myXmlTextWriter.WriteElementString("styleUrl",null,"#track");
+                        myXmlTextWriter.WriteStartElement("Point");
+                        myXmlTextWriter.WriteElementString("coordinates",null, thegpsdata.Lon+","+thegpsdata.Lat);
+                        myXmlTextWriter.WriteEndElement();
+                        myXmlTextWriter.WriteEndElement();
+                        */
+                        //	if(thegpsdata.Signal > thebestsignal)
+                        //	{
+                        //		thebestsignal=thegpsdata.Signal;
+                        //		thebestlon=thegpsdata.Lon;
+                        //		thebestlat=thegpsdata.Lat;
+                        //	}
+                        //Console.WriteLine(thegpsdata.Bssid);
+                        //Console.WriteLine(thegpsdata.Lat);
+                        //Console.WriteLine(thegpsdata.Lon);
+                        //} while(thegpsdata.MoveNext());
                         string clientstring = "";
                         myXmlTextWriter.WriteStartElement("Placemark");
                         myXmlTextWriter.WriteElementString("name", null, newdata.ESSID);
@@ -653,7 +907,19 @@ namespace KismetLogger
                         }
 
                         myXmlTextWriter.WriteEndElement();
-                        myXmlTextWriter.WriteStartElement("Point");                      
+                        myXmlTextWriter.WriteStartElement("Point");
+                        /*
+                        myXmlTextWriter.WriteStartElement("Style");
+                        if(newdata.Encryption=="None")
+                        {
+                            myXmlTextWriter.WriteElementString("icon",null,"node.open.png");
+                        }
+                        else
+                        {
+                            myXmlTextWriter.WriteElementString("icon",null,"node.closed.png");
+                        }
+                        myXmlTextWriter.WriteEndElement();
+                        */
                         myXmlTextWriter.WriteElementString("coordinates", null, thegpsdata.Lon + "," + thegpsdata.Lat);
                         myXmlTextWriter.WriteEndElement();
                         myXmlTextWriter.WriteEndElement();
@@ -662,10 +928,57 @@ namespace KismetLogger
                 } while (newdata.MoveNext());
             }
             myXmlTextWriter.WriteEndElement();
+            /*
+            thecd.LoadAll();
+            thegpsdata.FlushData();
+            do
+            {
+                thegpsdata.Where.Source.Value=thecd.Clientmac;
+                thegpsdata.Where.Source.Operator=WhereParameter.Operand.Equal;
+                //Kisdata.Where.BSSID.Value="00:0F:3D:3E:41:9A";
+                //Kisdata.Where.BSSID.Operator=WhereParameter.Operand.Equal;
+                //Console.WriteLine(thegpsdata.Query.GenerateSQL());
+                thegpsdata.Query.Load();
+                thebestlat = 0;
+                thebestlon = 0;
+                thebestsignal=-257;
+                if(thegpsdata.RowCount !=0)
+                {
+                    thegpsdata.Rewind();
+                    do
+                    {
+                        // 00:0D:72:2A:9A:39 Anne
+						
+						
+                        myXmlTextWriter.WriteStartElement("Placemark");
+                    myXmlTextWriter.WriteElementString("name",null,thecd.Bssid);
+                    myXmlTextWriter.WriteElementString("styleUrl",null,"#track");
+                    myXmlTextWriter.WriteStartElement("Point");
+                    myXmlTextWriter.WriteElementString("coordinates",null, thebestlon+","+thebestlat);
+                    myXmlTextWriter.WriteEndElement();
+                    myXmlTextWriter.WriteEndElement();
+                        if(thegpsdata.Signal > thebestsignal)
+                        {
+                            thebestsignal=thegpsdata.Signal;
+                            thebestlon=thegpsdata.Lon;
+                            thebestlat=thegpsdata.Lat;
+                        }
+                        //Console.WriteLine(thegpsdata.Bssid);
+                        //Console.WriteLine(thegpsdata.Lat);
+                        //Console.WriteLine(thegpsdata.Lon);
+                    } while(thegpsdata.MoveNext());
+					
+                }
+	
+
+            }while(thecd.MoveNext());
+			
+*/
+
             myXmlTextWriter.Flush();
             myXmlTextWriter.Close();
         } 
-        public static void CreateKmlFileNew(gpsdata thegpsdata, string theconnectionstring)
+        public static void CreateKmlFileNew(gpsdata thegpsdata, string theconnectionstring, bool filter)
         {
             SQLiteConnectionStringBuilder builder = new SQLiteConnectionStringBuilder();
             builder.DataSource = string.Format("{0}\\kismetdata.db", Application.StartupPath);
@@ -673,51 +986,89 @@ namespace KismetLogger
             builder.CacheSize = 5000;
             DatanewTableAdapter thedatanewtableadaptor = new DatanewTableAdapter();
             ClientsTableAdapter theclientstableadaptor = new ClientsTableAdapter();
-            GPSDatanewTableAdapter thegpsdatadapator = new GPSDatanewTableAdapter();
-            
+            //GPSDatanewTableAdapter thegpsdatadapator = new GPSDatanewTableAdapter();
             SQLiteConnection connection = new SQLiteConnection(builder.ToString());
             connection.Open();
-            
+            SQLiteCommand cmdBase = connection.CreateCommand();
+            SQLiteDataReader readBase = null;
+            double themaxlon=0.0;
+            double theminlon = 0.0;
+            cmdBase.CommandText = "SELECT MAX(lon) as maxlon, min(lon) as minlon FROM gpsdata";
+            //cmdBase.CommandText = "SELECT     oui, bssid, clientmac FROM         Clients WHERE     bssid='" & thebssid & "'";
+            readBase = cmdBase.ExecuteReader();
+            if (readBase.HasRows)
+            {
+                readBase.Read();
+                themaxlon = System.Convert.ToDouble(readBase["maxlon"].ToString());
+                theminlon = System.Convert.ToDouble(readBase["minlon"].ToString());
+            }
+            //Console.WriteLine(themaxlon);
+            //Console.WriteLine(theminlon);
             Console.WriteLine("Creating KML File");
-            
+            readBase.Close();
+            double thestep = theminlon;
+            double newmax = 0.0;
+            newmax = thestep + .010000000;
+            //while (thestep < themaxlon)
+            //{
+                //Console.WriteLine(thestep);
+                //Console.WriteLine(newmax);
+                //thestep = thestep + .01000000;
+                //newmax = thestep + .010000000;
+            //}
             DataTable t;
-
-            DataTable gpst;
+            
             DataTable clientt;
 
-            string thelat;
-            string thelong;
             XmlTextWriter myXmlTextWriter = new XmlTextWriter(Application.StartupPath + "\\kismet.kml", null);
             myXmlTextWriter.Formatting = Formatting.Indented;
             myXmlTextWriter.WriteStartDocument(false);
             myXmlTextWriter.WriteStartElement("Folder");
             myXmlTextWriter.WriteElementString("name", null, "KismetLogger");
             string[] names = new string[26] { "None","WEP","WEP,CCMP","WEP,TKIP","WEP,TKIP,CCMP","WEP,TKIP,WPA","WEP,TKIP,WPA,AES-CCM","WEP,TKIP,WPA,AES-CCM,CCMP","WEP,TKIP,WPA,PSK","WEP,TKIP,WPA,PSK,AES-CCM","WEP,TKIP,WPA,PSK,AES-CCM,CCMP","WEP,WEP104,TKIP,WPA","WEP,WEP104,TKIP,WPA,AES-CCM","WEP,WEP104,TKIP,WPA,PSK,AES-CCM","WEP,WEP104,WPA","WEP,WEP104,WPA,CCMP","WEP,WEP40,TKIP,WPA","WEP,WEP40,TKIP,WPA,AES-CCM","WEP,WEP40,TKIP,WPA,PSK","WEP,WEP40,WEP104,TKIP,WPA","WEP,WEP40,WEP104,TKIP,WPA,AES-CCM","WEP,WEP40,WPA,AES-CCM","WEP,WPA,AES-CCM","WEP,WPA,AES-CCM,CCMP","WEP,WPA,PSK,AES-CCM","WEP,WPA,PSK,AES-CCM,CCMP"};
-            for (int a = 0; a < 26; a++)
+            //string[] names = new string[1] { "None" };
+            //string[] names = new string[8] { "2009-03-14","2009-03-15", "2009-03-16","2009-03-23","2009-03-24","2009-03-29","2009-04-01","2009-04-03"};
+            int nameslength = names.Length;
+            for (int a = 0; a < nameslength; a++)
             {
+                //if (a != (nameslength - 1))
+                //{
+                  //  t = thedatanewtableadaptor.GetDataByFirstSeen(names[a], names[a + 1]);
+                //}
+                //else
+                //{
+                    //t = thedatanewtableadaptor.GetDataByFirstSeen(names[a], "2009-04-04");
+                //}
                 t = thedatanewtableadaptor.GetDataByEncType(names[a]);
+                //t = thedatanewtableadaptor.GetDataByLatLon(names[a], -86.25, -86.28);                
                 DataTableReader thedatareader = t.CreateDataReader();
                 myXmlTextWriter.WriteStartElement("Folder");
                 myXmlTextWriter.WriteElementString("name", null,names[a]);
                 Console.WriteLine(names[a] + " " + t.Rows.Count);
+                //Console.WriteLine(themaxminreader["maxlon"].ToString());
+                //Console.WriteLine(themaxminreader["minlon"].ToString());
+
                 for (int i = 0; i < t.Rows.Count; i++)
                 {
                     thedatareader.Read();
                     string thebssid = thedatareader["bssid"].ToString();
-                    gpst = thegpsdatadapator.GetDataByGpsData(thebssid);
-                    if (gpst.Rows.Count != 0)
-                    {
+                    //Console.WriteLine(thedatareader["lat"].ToString());
+                    //Console.WriteLine(thedatareader["lon"].ToString());
+                    //gpst = thegpsdatadapator.GetDataByGpsData(thebssid);
+                    //if (gpst.Rows.Count != 0)
+                    //{
+                    
                         string clientstring = "";
                         myXmlTextWriter.WriteStartElement("Placemark");
                         myXmlTextWriter.WriteElementString("name", null, thedatareader["Essid"].ToString());
                         myXmlTextWriter.WriteElementString("styleUrl", null, "#track");
                         myXmlTextWriter.WriteStartElement("description");
-                        DataTableReader thegpsreader = gpst.CreateDataReader();
-                        thegpsreader.Read();
-                        thelat = thegpsreader["lat"].ToString();
+                        //DataTableReader thegpsreader = gpst.CreateDataReader();
+                        //thegpsreader.Read();
+                        string thelat = thedatareader["lat"].ToString();
                         //Console.WriteLine(thelat);
                         
-                        thelong = thegpsreader["lon"].ToString();
+                        string thelong = thedatareader["lon"].ToString();
                         //Console.WriteLine(thelong);
                         clientt = theclientstableadaptor.GetDataByBssid(thebssid);
                         if (clientt.Rows.Count !=0)
@@ -732,7 +1083,7 @@ namespace KismetLogger
                                 clientstring += "<p>" + theclientmac + "-" + theclientoui + "</p>";
                             }
                         }
-                        myXmlTextWriter.WriteCData(string.Format("{0}-{1}<p><b>First Seen: </b><br>{2}<br><BR><b> Last Seen </b>{3}{4}", thedatareader["bssid"], thedatareader["Oui"], thedatareader["FirstTime"], thedatareader["LastTime"], clientstring));
+                        myXmlTextWriter.WriteCData(string.Format("{0}-{1}<p><b>First Seen: </b><br>{2}<br><BR><b> Last Seen: </b><BR>{3}{4}", thedatareader["bssid"], thedatareader["Oui"], thedatareader["FirstTime"], thedatareader["LastTime"], clientstring));
                         myXmlTextWriter.WriteEndElement();
                         myXmlTextWriter.WriteStartElement("Style");
                         myXmlTextWriter.WriteStartElement("Icon");
@@ -747,7 +1098,7 @@ namespace KismetLogger
                         myXmlTextWriter.WriteElementString("coordinates", null, thelong + "," + thelat);
                         myXmlTextWriter.WriteEndElement();
                         myXmlTextWriter.WriteEndElement();
-                    }
+                    //}
                 }
                 myXmlTextWriter.WriteEndElement();
                 myXmlTextWriter.Flush();
@@ -792,15 +1143,19 @@ namespace KismetLogger
                 StreamReader sr = File.OpenText(Application.StartupPath + "\\logs\\" + f.Name);
                 string input;
                 Console.WriteLine(f.Name);
-            
+                //string aoui = "";
+                
+                //string[] theoui;
+                //string thecompany = "";
                 sr.ReadLine();
                 while ((input = sr.ReadLine()) != null)
                 {
                     if (input.Length != 0)
                     {
+                        //Console.WriteLine(input);	
                         string[] thestrings;
                         thestrings = input.Split(new char[] { ';' });
-                        
+                        //Console.WriteLine(thestrings.Length);
                         if(!Kisdata.LoadByPrimaryKey(thestrings[3]))
                         {
                             Console.WriteLine(thestrings[2]);
@@ -1426,7 +1781,7 @@ namespace KismetLogger
                         int thedatalength;
                         thedatalength = ds.wirelessnetwork.Length;
                         networktotal = thedatalength;
-                        IFormatProvider format = new CultureInfo("en-US");
+                        //IFormatProvider format = new CultureInfo("en-US");
                         for (int i = 0; i < thedatalength; i++)
                         {
                             //Network network1=new Network(ds.wirelessnetwork[i].BSSID, ds.wirelessnetwork[i].SSID);
@@ -1438,35 +1793,31 @@ namespace KismetLogger
                                 networkseen++;
                                 DataTableReader thereader = t.CreateDataReader();
                                 thereader.Read();
+
+
                                 string firsttime = thereader["firsttime"].ToString();
                                 string lasttime = thereader["lasttime"].ToString();
-                                if (firsttime == "")
-                                {
-                                    Console.WriteLine(firsttime);
-                                    Console.WriteLine(lasttime);
-                                }
+                              
 
-                                string[] expectedformats = {"ddd MMM  d HH:mm:ss yyyy", "ddd MMM d HH:mm:ss yyyy"};
-
+                                //string[] expectedformats = {"ddd MMM  d HH:mm:ss yyyy", "ddd MMM d HH:mm:ss yyyy"};
+                                //string[] expectedformats = {"YYYY-MM-DD HH:mm:ss"};
+                                
                                 // Wed Mar 29 14:52:56 2006
                                 try
                                 {
-                                    dbfirsttime =
-                                        DateTime.ParseExact(firsttime, expectedformats, format,
-                                                            DateTimeStyles.AllowWhiteSpaces);
-                                    xmlfirsttime =
-                                        DateTime.ParseExact(ds.wirelessnetwork[i].firsttime, expectedformats, format,
-                                                            DateTimeStyles.AllowWhiteSpaces);
-                                    dblasttime =
-                                        DateTime.ParseExact(lasttime, expectedformats, format,
-                                                            DateTimeStyles.AllowWhiteSpaces);
-                                    xmllasttime =
-                                        DateTime.ParseExact(ds.wirelessnetwork[i].lasttime, expectedformats, format,
-                                                            DateTimeStyles.AllowWhiteSpaces);
+                                    DateTime.TryParse(firsttime, out dbfirsttime);
+                                    DateTime.TryParse(GetNewtime(ds.wirelessnetwork[i].firsttime), out xmlfirsttime);
+                                    DateTime.TryParse(lasttime, out dblasttime);
+                                    DateTime.TryParse(GetNewtime(ds.wirelessnetwork[i].lasttime), out xmllasttime);
+                                    
                                 }
                                 catch (FormatException ex)
                                 {
-                                    Console.WriteLine(ex);
+                                    Console.WriteLine(ex.ToString());
+                                    Console.WriteLine(firsttime);
+                                    Console.WriteLine(xmlfirsttime);
+                                    Console.WriteLine(dblasttime);
+                                    Console.WriteLine(xmllasttime);
                                 }
                                 if ((thereader["essid"].ToString() != ds.wirelessnetwork[i].SSID) &&
                                     ds.wirelessnetwork[i].SSID != null)
@@ -1475,7 +1826,7 @@ namespace KismetLogger
                                                       ds.wirelessnetwork[i].SSID);
                                     ssidbssid.Value = thereader["bssid"];
                                     //thessidchanges.AddNew();
-                                    ssiddate.Value = ds.wirelessnetwork[i].lasttime;
+                                    ssiddate.Value = xmllasttime;
                                     ssidoldname.Value = thereader["essid"].ToString();
                                     ssidnewname.Value = ds.wirelessnetwork[i].SSID;
                                     insertssidchanges.ExecuteNonQuery();
@@ -1504,6 +1855,7 @@ namespace KismetLogger
                                 updateCloaked.Value = ds.wirelessnetwork[i].cloaked;
                                 updateoui.Value = thereader["oui"];
                                 updateNetwork.Value = thereader["Network"];
+                                //updateEncryption.Value = thereader["Encryption"];
                                 updateEncryption.Value = enchash[ds.wirelessnetwork[i].BSSID];
                                 updateNetType.Value = thereader["NetType"];
                                 updateMaxRate.Value = ds.wirelessnetwork[i].maxrate;
@@ -1538,19 +1890,19 @@ namespace KismetLogger
                                                             : thereader["GPSMinLon"];
                                 if (xmlfirsttime < dbfirsttime)
                                 {
-                                    updateFirstTime.Value = ds.wirelessnetwork[i].firsttime;
+                                    updateFirstTime.Value = xmlfirsttime;
                                 }
                                 else
                                 {
-                                    updateFirstTime.Value = thereader["FirstTime"];
+                                    updateFirstTime.Value = dbfirsttime;
                                 }
                                 if (xmllasttime > dblasttime)
                                 {
-                                    updateLastTime.Value = ds.wirelessnetwork[i].lasttime;
+                                    updateLastTime.Value = xmllasttime;
                                 }
                                 else
                                 {
-                                    updateLastTime.Value = thereader["LastTime"];
+                                    updateLastTime.Value = dblasttime;
                                 }
                                 updateBSSID.Value = ds.wirelessnetwork[i].BSSID;
 
@@ -1577,8 +1929,8 @@ namespace KismetLogger
                                 //AddDataTableNew(ds, i, insertdatacmd);
                                 dataoui.Value = LookupOuiData(ds.wirelessnetwork[i].BSSID);
                                 Cloaked.Value = ds.wirelessnetwork[i].cloaked;
-                                FirstTime.Value = ds.wirelessnetwork[i].firsttime;
-                                LastTime.Value = ds.wirelessnetwork[i].lasttime;
+                                FirstTime.Value = GetNewtime(ds.wirelessnetwork[i].firsttime);
+                                LastTime.Value = GetNewtime(ds.wirelessnetwork[i].lasttime);
                                 BSSID.Value = ds.wirelessnetwork[i].BSSID;
                                 Network.Value = ds.wirelessnetwork[i].number;
                                 NetType.Value = ds.wirelessnetwork[i].type;
@@ -1599,10 +1951,20 @@ namespace KismetLogger
                                 GPSMinLon.Value = ds.wirelessnetwork[i].gpsinfo.minlon;
                                 insertdatacmd.ExecuteNonQuery();
 
-                                
+                                //00:0D:3A:28:24:E9
+                                //if(ds.wirelessnetwork[i].wirelessclient != null)
+                                //{
+                                //AddorUpdateClientsSqlite(ds, i, theClientData);
+                                //}
+                                //Kisdata.Save();
                             }
                             if (ds.wirelessnetwork[i].wirelessclient != null)
                             {
+                                //AddorUpdateClientsSqlite(ds, i, theClientData);
+                                //AddorUpdateClientsSqliteNew(ref ds, i, ref clienttotal, ref clientnew, ref clientseen);
+
+
+                                //DataTable t;
                                 clienttotal += ds.wirelessnetwork[i].wirelessclient.Length;
                                 for (int j = 0; j < ds.wirelessnetwork[i].wirelessclient.Length; j++)
                                 {
@@ -1612,7 +1974,8 @@ namespace KismetLogger
                                             ds.wirelessnetwork[i].BSSID);
                                     if (t.Rows.Count == 0)
                                     {
-                                       
+                                        //theClientData.AddNew();
+                                        //Console.WriteLine("Client Add");
                                         clientnew++;
                                         bssid.Value = ds.wirelessnetwork[i].BSSID;
                                         insertoui.Value =
@@ -1621,8 +1984,8 @@ namespace KismetLogger
                                         clientdatasize.Value = ds.wirelessnetwork[i].wirelessclient[j].clientdatasize;
                                         clientencryption.Value =
                                             ds.wirelessnetwork[i].wirelessclient[j].clientencryption;
-                                        clientfirsttime.Value = ds.wirelessnetwork[i].wirelessclient[j].firsttime;
-                                        clientlasttime.Value = ds.wirelessnetwork[i].wirelessclient[j].lasttime;
+                                        clientfirsttime.Value = GetNewtime(ds.wirelessnetwork[i].wirelessclient[j].firsttime);
+                                        clientlasttime.Value = GetNewtime(ds.wirelessnetwork[i].wirelessclient[j].lasttime);
                                         if (ds.wirelessnetwork[i].wirelessclient[j].clientgpsinfo != null)
                                         {
                                             clientgpsmaxalt.Value =
@@ -1662,52 +2025,45 @@ namespace KismetLogger
                                         clientseen++;
                                         DataTableReader thereader = t.CreateDataReader();
                                         thereader.Read();
-                                        
+                                        //Console.WriteLine("Client Update");
                                         updateclientdatasize.Value = Convert.ToInt32(thereader["clientdatasize"]) +
                                                                      ds.wirelessnetwork[i].wirelessclient[j].
                                                                          clientdatasize;
                                         updateoui.Value = LookupOuiData(ds.wirelessnetwork[i].wirelessclient[j].clientmac);
-                                        updateclientencryption.Value =
-                                            ds.wirelessnetwork[i].wirelessclient[j].clientencryption;
+                                        updateclientencryption.Value = ds.wirelessnetwork[i].wirelessclient[j].clientencryption;
                                         //IFormatProvider format = new CultureInfo("en-US");
-                                        string[] expectedformats = {
-                                                                       "ddd MMM  d HH:mm:ss yyyy",
-                                                                       "ddd MMM d HH:mm:ss yyyy"
-                                                                   };
+                                       
                                         string firsttime = thereader["clientfirsttime"].ToString();
                                         string lasttime = thereader["clientlasttime"].ToString();
-                                        
-                                        dbfirsttime =
-                                            DateTime.ParseExact(firsttime, expectedformats, format,
-                                                                DateTimeStyles.AllowWhiteSpaces);
-                                        xmlfirsttime =
-                                            DateTime.ParseExact(ds.wirelessnetwork[i].wirelessclient[j].firsttime,
-                                                                expectedformats, format, DateTimeStyles.AllowWhiteSpaces);
-                                        dblasttime =
-                                            DateTime.ParseExact(lasttime, expectedformats, format,
-                                                                DateTimeStyles.AllowWhiteSpaces);
-                                        xmllasttime =
-                                            DateTime.ParseExact(ds.wirelessnetwork[i].wirelessclient[j].lasttime,
-                                                                expectedformats, format, DateTimeStyles.AllowWhiteSpaces);
+                                        //DateTime dbfirsttime;
+                                        //DateTime xmlfirsttime;
+                                        //DateTime dblasttime;
+                                        //DateTime xmllasttime;
+                                        // Wed Mar 29 14:52:56 2006
+                                        DateTime.TryParse(firsttime, out dbfirsttime);
+                                        DateTime.TryParse(GetNewtime(ds.wirelessnetwork[i].wirelessclient[j].firsttime), out xmlfirsttime);
+                                        DateTime.TryParse(lasttime, out dblasttime);
+                                        DateTime.TryParse(GetNewtime(ds.wirelessnetwork[i].wirelessclient[j].lasttime), out xmllasttime);
 
                                         if (xmlfirsttime < dbfirsttime)
                                         {
-                                            updateclientfirsttime.Value = ds.wirelessnetwork[i].firsttime;
+                                            updateclientfirsttime.Value = xmlfirsttime;
                                         }
                                         else
                                         {
-                                            updateclientfirsttime.Value = thereader["clientfirsttime"];
+                                            updateclientfirsttime.Value = dbfirsttime;
                                         }
                                         if (xmllasttime > dblasttime)
                                         {
-                                            updateclientlasttime.Value = ds.wirelessnetwork[i].lasttime;
+                                            updateclientlasttime.Value = xmllasttime;
                                         }
                                         else
                                         {
-                                            updateclientlasttime.Value = thereader["clientlasttime"];
+                                            updateclientlasttime.Value = dblasttime;
                                         }
 
-                                        
+                                        //theClientData.Clientfirsttime = ds.wirelessnetwork[i].wirelessclient[j].firsttime;
+                                        //theClientData.Clientlasttime = ds.wirelessnetwork[i].wirelessclient[j].lasttime;
                                         if (ds.wirelessnetwork[i].wirelessclient[j].clientgpsinfo != null)
                                         {
                                             updateclientgpsmaxalt.Value =
@@ -1748,6 +2104,7 @@ namespace KismetLogger
                                     }
                                 }
                             }
+                            //Kisdata.Save();
                         }
                     }
                     catch (Exception ex)
@@ -1795,7 +2152,9 @@ namespace KismetLogger
             builder.DataSource = string.Format("{0}\\kismetdata.db", Application.StartupPath);
             builder.SyncMode = SynchronizationModes.Off;
             builder.CacheSize = 5000;
+            //DataTable t;
             SQLiteConnection connection = new SQLiteConnection(builder.ToString());
+            //SQLiteCommand command = connection.CreateCommand();
             connection.Open();
             SQLiteCommand addcmd = connection.CreateCommand();
             addcmd.CommandText = "Select * from dog where bssid=\"00:0C:E5:45:C5:BD\"";
@@ -1812,6 +2171,7 @@ namespace KismetLogger
         }
 	    private static void AddDataTableNew(detectionrun ds, int i, SQLiteCommand insertdata)
         {
+           //insertdata.Parameters["Oui"].Value = LookupOuiData(ds.wirelessnetwork[i].BSSID);
             insertdata.Parameters["Cloaked"].Value = ds.wirelessnetwork[i].cloaked;
             insertdata.Parameters["FirstTime"].Value = ds.wirelessnetwork[i].firsttime;
             insertdata.Parameters["LastTime"].Value = ds.wirelessnetwork[i].lasttime;
@@ -1945,6 +2305,7 @@ namespace KismetLogger
         private static string ConvertToDate(double p)
         {
             DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0);
+
             // Add the number of seconds in UNIX timestamp to be converted.
             dateTime = dateTime.AddSeconds(p);
             return dateTime.ToString();
@@ -1955,17 +2316,26 @@ namespace KismetLogger
         }
         private static void ProcessHugeGPSFiles(XmlSerializer xs2)
         {
+            //thegpsdata = new gpsdata();
+            //thegpsfiles = new gpsfiles();
+            //thegpsfiles.ConnectionString = theconnectionstring;
+            //thegpsdata.ConnectionString = theconnectionstring;
             SQLiteConnectionStringBuilder builder = new SQLiteConnectionStringBuilder();
             builder.DataSource = string.Format("{0}\\kismetdata.db", Application.StartupPath);
             builder.SyncMode = SynchronizationModes.Off;
             builder.CacheSize = 5000;
-
+            //DataTable t;
             SQLiteConnection connection = new SQLiteConnection(builder.ToString());
+            //SQLiteCommand command = connection.CreateCommand();
             connection.Open();
-
+            //GPSDatanewTableAdapter gpstableadaptor = new GPSDatanewTableAdapter();
+            //GPSFilesnewTableAdapter thegpsfilesadaptor = new GPSFilesnewTableAdapter();
             GPSDatanewTableAdapter thegpsdataadaptor = new GPSDatanewTableAdapter();
             Hashtable gpshashadd = new Hashtable();
+            //Hashtable gpshashupdate = new Hashtable();
             SQLiteCommand addcmd = connection.CreateCommand();
+            //SQLiteCommand updatecmd = connection.CreateCommand();
+            //DbCommand updatecmd = connection.CreateCommand();
             string theaddcmd;
             theaddcmd = "INSERT INTO GPSData values (?, ?, ?, ?,?,?,?,?,?,?,?,?,?)";
             addcmd.CommandText = theaddcmd;
@@ -2021,12 +2391,31 @@ namespace KismetLogger
                         ds2 = (gpsrun)xs2.Deserialize(fs2);
 
                         
+                        // thegpsdataadaptor.Update("FF:FF:FF:00:00:00","")
+                        //thegpsfiles.AddNew();
+                        //thegpsfiles.Filename = f.Name;
+                        //thegpsfiles.Save();
+                        // Processing Kismet-Apr-17-2006-3.gps
+                        // Object reference not set to an instance of an object.
                         thecount = ds2.Items.Length;
                         Console.WriteLine(thecount);
+                        //GPSDatanewTableAdapter thegpsdatatableadaptor = new GPSDatanewTableAdapter();
                         for (int i = 0; i < thecount; i++)
                         {
                             if (ds2.Items[i].bssid != "GP:SD:TR:AC:KL:OG")
                             {
+                                //thegpsdata.Where.Bssid.Value=ds2.Items[i].bssid;
+                                //thegpsdata.Where.Bssid.Operator=WhereParameter.Operand.Equal;
+                                //Kisdata.Where.BSSID.Value="00:0F:3D:3E:41:9A";
+                                //Kisdata.Where.BSSID.Operator=WhereParameter.Operand.Equal;
+                                //Console.WriteLine(thegpsdata.Query.GenerateSQL());
+                                //thegpsdata.Query.Load();
+                                //DataTable t;
+                                //t = thegpsdatatableadaptor.GetDataByGpsData(ds2.Items[i].bssid);
+                                //if (!thegpsdata.LoadByPrimaryKey(ds2.Items[i].bssid))
+                                //if (t.Rows.Count == 0)
+                                //{
+                                    //Console.WriteLine(i);
                                     if (!gpshashadd.ContainsKey(ds2.Items[i].bssid))
                                     {
                                         if (ds2.Items[i].lat != 0 && ds2.Items[i].signal != 0)
@@ -2045,8 +2434,12 @@ namespace KismetLogger
 
                                             if ((thehashsignal < ds2.Items[i].signal) && ds2.Items[i].fix == "3" && ds2.Items[i].signal != 0)
                                             {
+                                                //Console.WriteLine(thehashsignal + "," + ds2.Items[i].signal);
+
                                                 if (ds2.Items[i].lat != 0)
                                                 {
+                                                    //Console.WriteLine("Removing " + i);
+
                                                     gpshashadd.Remove(ds2.Items[i].bssid);
                                                     gpshashadd.Add(ds2.Items[i].bssid, i);
                                                 }
@@ -2291,8 +2684,15 @@ namespace KismetLogger
                             {
                                 if (ds2.Items[i].bssid != "GP:SD:TR:AC:KL:OG")
                                 {
+                                    //thegpsdata.Where.Bssid.Value=ds2.Items[i].bssid;
+                                    //thegpsdata.Where.Bssid.Operator=WhereParameter.Operand.Equal;
+                                    //Kisdata.Where.BSSID.Value="00:0F:3D:3E:41:9A";
+                                    //Kisdata.Where.BSSID.Operator=WhereParameter.Operand.Equal;
+                                    //Console.WriteLine(thegpsdata.Query.GenerateSQL());
+                                    //thegpsdata.Query.Load();
                                     
                                     t = thegpsdatatableadaptor.GetDataByGpsData(ds2.Items[i].bssid);
+                                    //if (!thegpsdata.LoadByPrimaryKey(ds2.Items[i].bssid))
                                     if (t.Rows.Count == 0)
                                     {
                                         //Console.WriteLine(i);
